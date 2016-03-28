@@ -3,8 +3,16 @@
 <head>
 	<title>Online CV Generator</title>
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
 </head>
 <body>
 	<ul id="dropdown1" class="dropdown-content">
@@ -25,7 +33,17 @@
 	  </div>
 	</div>
   </nav>
-<script type="text/javascript" src="js/jquery.js"></script>
+  <div class="verticalAlign"></div>
+  <div class="container">
+    <div class="row">
+      <div id="sortable">
+          <div class="section col m4"><div class="template z-depth-1"></div></div>
+          <div class="section col m4"><div class="template z-depth-1"></div></div>
+          <div class="section col m4"><div class="template z-depth-1"></div></div>
+      </div>
+    </div>
+  </div>
+
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>

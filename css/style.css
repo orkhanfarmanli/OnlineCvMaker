@@ -103,5 +103,12 @@ head, body {
 
 blockquote {
   border-left: 5px solid grey !important; }
-
+.template{
+  height: 500px;
+  background-color: white;
+  transition: all 0.1s linear;
+}
+.template:hover{
+  box-shadow: 0 0 30px 0 #0abc77;
+}
 /*# sourceMappingURL=style.css.map */

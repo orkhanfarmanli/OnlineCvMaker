@@ -8,10 +8,10 @@
 </head>
 <body>
 	<ul id="dropdown1" class="dropdown-content">
-			  <li><a href="#!">one</a></li>
-			  <li><a href="#!">two</a></li>
+			  <li><a href="#!">Profile</a></li>
+			  <li><a href="#!">Create Resume</a></li>
 			  <li class="divider"></li>
-			  <li><a href="#!">three</a></li>
+			  <li><a href="#!">Log out</a></li>
 	</ul>
   <nav>
   <div class="container">
