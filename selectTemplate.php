@@ -9,7 +9,7 @@
 <body>
 
   <nav>
-  <div class="container">
+  <div class="containerDiv">
     <div class="row">
 	    <div class="nav-wrapper">
 	      <a href="#!" class="brand-logo"><b>RESUME</b>CREATOR</a>
