@@ -11,7 +11,7 @@
 			  <li><a href="#!">Profile</a></li>
 			  <li><a href="#!">Create Resume</a></li>
 			  <li class="divider"></li>
-			  <li><a href="#!">Log out</a></li>
+			  
 	</ul>
   <nav>
   <div class="container">
