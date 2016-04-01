@@ -14,3 +14,13 @@ body {
 .card-action .btn:hover{
 	background: #0abc77;
 }
+.date2 {
+	margin-bottom:0 !important;
+}
+label[for=date2]{
+	left:0 !important;
+}
+label[for=checkbox], label[for=checkbox1]{
+
+    padding-left: 25px !important;
+}
