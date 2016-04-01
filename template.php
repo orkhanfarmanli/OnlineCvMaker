@@ -8,6 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <!-- For  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 </head>
@@ -23,13 +24,15 @@
       <div class="col s12 m2 offset-m1">
         <div class="card black darken-1">
           <div class="card-content grey-text">
-            <span >Select color</span>
+            <div class="row"><span >Select color</span></div>
+            <div class="row">
             <ul class="pagination">
               <li class="waves-effect"><a href="#!"><div class="teal ball" name="teal-text"></div></a></li>
               <li class="waves-effect"><a href="#!"><div class="blue ball" name="blue-text"></div></a></li>
               <li class="waves-effect"><a href="#!"><div class="red ball" name="red-text"></div></a></li>
               <li class="waves-effect"><a href="#!"><div class="purple ball" name="purple-text"></div></a></li>
             </ul>
+            </div>
             <a href="#" class="btn grey btn-text"> <i class="material-icons left">loop</i>Change design</a>
             <a href="#" class="btn  grey btn-text"> <i class="material-icons left">description</i>Save as draft</a>
           </div>
@@ -72,31 +75,34 @@
             </blockquote>
             <div class="languages">
               <i class="material-icons left grey-text">language</i><h5 class="blue-text " name="desingText">LANGUAGES</h5>
-
+              <div class="">
               <span class="grey-text text-darken-2">ENGLISH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-
+              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>         
+              </div>
+              <div class="">
               <span class="grey-text text-darken-2">RUSSIAN</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-
+              </div>
+              <div class="">
           <span class="grey-text text-darken-2">SPANISH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-
+              </div>
+              <div>
               <span class="grey-text text-darken-2">TURKISH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
               <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-            
+              </div>
             </div>
            
             <div class="skills">
@@ -105,30 +111,32 @@
            
             
               <i class="material-icons left grey-text">list</i><h5 class="blue-text  " name="desingText">SKILLS</h5>
+              <div>
               <span class="grey-text text-darken-2">PHOTOSHOP</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-
+              </div>
+              <div>
               <span class="grey-text text-darken-2">HTML/CSS</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-
+              </div>
               <span class="grey-text text-darken-2">ILLUSTRATOR</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-
+              <div>
               <span class="grey-text text-darken-2">SKETCH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-
+              </div>
 
              </div>
              <div class="awards">
@@ -170,8 +178,8 @@
                       <fieldset>
                         <legend>
                           <ul class="fieldset">
-                            <li><a class="btn"><i class="material-icons">edit</i></a></li>
-                            <li> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
+                            <li ><a class="btn"><i class="material-icons">edit</i></a></li>
+                            <li > <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
                             <li> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
                          
@@ -210,7 +218,7 @@
 
 
             </div>
-                </div>
+                
                  
                 
             <div class="row">
@@ -272,6 +280,7 @@
            
           </div>
         </div>
+        </div>
       </div>
 
 
@@ -301,20 +310,21 @@
           
        
         });
+}
+);
+      //  $(".edit").mouseover(function(){
+      //   $("fieldset",this).addClass("editBorder");
+      //   $("legend",this).show();
+      // });
+      // $(".edit").mouseout(function(){
+      //   $("fieldset",this).removeClass("editBorder");
+      //   $("legend",this).hide();
+      // });
+      // var width=$(".edit").width();
+      // $("legend").css("margin-left",width*0.9+"px");
 
-       $(".edit").mouseover(function(){
-        $("fieldset",this).addClass("editBorder");
-        $("legend",this).show();
-      });
-      $(".edit").mouseout(function(){
-        $("fieldset",this).removeClass("editBorder");
-        $("legend",this).hide();
-      });
-      var width=$(".edit").width();
-      $("legend").css("margin-left",width*0.9+"px");
-
-      }
-      );
+      // }
+      // );
 
 </script>
 </body>

@@ -145,30 +145,27 @@ head,body{
 blockquote{
   border-left: 5px solid grey !important;
 }
-.editBorder{
-  border:3px solid #009688 !important;
-  border-radius:10px !important;
-}
-
-legend{
+.fieldset{
   display: none;
-
+  position: absolute;
+  right: 7% !important;
 }
 fieldset{
-  border:1px solid #FFFFFF !important;
+  border: 3px solid #FFFFFF !important;
+  margin: 0!important;
+  margin-left: -3px !important;
+  margin-top: 15px !important;
+  padding-top: 10px !important;
 }
-.fieldset{
-  display: inline;
-  list-style-type: none;
+fieldset:hover .fieldset{
+  display: block !important;
 }
-fieldset {
-    display: block;
-    -webkit-margin-start: 2px !important;
-    -webkit-margin-end: 2px !important;
-    -webkit-padding-before: 0em !important;
-    -webkit-padding-start: 0em !important;
-    -webkit-padding-end: 0em !important;
-    -webkit-padding-after: 0em !important;
-    min-width: -webkit-min-content;
-    border: 2px groove threedface;
+fieldset:hover{
+  border:3px solid #009688 !important;
+  border-radius:10px ;
+}
+
+
+.fieldset li{
+  display: inline-block !important;
 }
