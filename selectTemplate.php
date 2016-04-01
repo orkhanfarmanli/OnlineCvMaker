@@ -7,12 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/design.css">
 </head>
 <body>
-	<ul id="dropdown1" class="dropdown-content">
-			  <li><a href="#!">Profile</a></li>
-			  <li><a href="#!">Create Resume</a></li>
-			  <li class="divider"></li>
-			  
-	</ul>
+
   <nav>
   <div class="container">
     <div class="row">
