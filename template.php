@@ -9,8 +9,7 @@
   <!-- For  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+ 
 </head>
 <body>
 
@@ -157,6 +156,7 @@
       <div class="col s12 m9 right white">
         <div class="card white darken-1">
           <div class="card-content grey-text">
+          <div>
             <h2 class=" blue-text text-darken-3" name="desingText"><b>KNYAZ YAQUBOV</b></h2>
             <h5 class="grey-text"><b>GRAPHIC DESIGNER</b></h5>
             <h6 class="grey-text">Date of birth: 02.06.1989</h6>
@@ -169,8 +169,8 @@
                 Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro. Earum pariatur hic eaque, est
                  architecto odit quae cupiditate?</p>
 
-
-
+                 </div>
+<div id="sortable">
                 <div class="row">
                   
                    <div class="edit">
@@ -179,14 +179,14 @@
                         <legend>
                           <ul class="fieldset">
                             <li ><a class="btn"><i class="material-icons">edit</i></a></li>
-                            <li > <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
-                            <li> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
+                            <li class="upIcon"> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
+                            <li class="downIcon"> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
                          
                          
                          
                         </legend>
-
+                    <div class="sectionWrapper">
                             <i class="material-icons left grey-text">school</i><h5 class="blue-text" name="desingText">EDUCATION</h5>
                     <div class="row"> 
                       <span class=" grey-text text-darken-2"><b>2012-2013 AZƏRBAYCAN DÖVLƏT PEDAQOJİ UNİVERSİTETİ
@@ -209,7 +209,7 @@
                       <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto 
                         a aspernatur ratione eos officia perspiciatis est porro.</p>
 
-
+                        </div>
                       </fieldset>
 
                     </form>
@@ -227,15 +227,17 @@
                   <form action="">
                       <fieldset>
                         <legend>
+                       
                           <ul class="fieldset">
                             <li><a class="btn"><i class="material-icons">edit</i></a></li>
-                            <li> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
-                            <li> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
+                            <li class="upIcon"> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
+                            <li class="downIcon"> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
                          
                          
                          
                         </legend>
+              <div class="sectionWrapper">
               <i class="material-icons left grey-text">work</i><h5 class="blue-text " name="desingText">WORK EXPERIENCE</h5>
               <div class="row">
                 <span class=" grey-text text-darken-2"><b>2012-2013 MICROSOFT CORPORATION</b></span> <br>
@@ -267,12 +269,13 @@
                 <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro.</p> 
 
               </div>
+              </div>
                   </fieldset>
                 </form>
             </div>
 
             </div>
-            
+            </div>
 
             <a class="btn grey black-text"><i class="material-icons center">add</i> <span>ADD MORE</span></a>
 
@@ -292,10 +295,14 @@
 
   </div>
 <script type="text/javascript" src="js/jquery.js"></script>
+ <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script type="text/javascript">
-  
+    $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
   $(document).ready(
 
       function(){
@@ -310,6 +317,15 @@
           
        
         });
+
+      $(".upIcon").click(function () {
+         $(this).parent().parent().parent().find(".sectionWrapper").hide("slow");
+         $(this).parent().parent().parent().addClass("showField");
+      });
+      $(".downIcon").click(function () {
+         $(this).parent().parent().parent().find(".sectionWrapper").show("slow");
+         $(this).parent().parent().parent().removeClass("showField");
+      });
 }
 );
       //  $(".edit").mouseover(function(){
