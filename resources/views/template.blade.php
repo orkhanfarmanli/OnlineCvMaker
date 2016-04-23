@@ -1,8 +1,142 @@
+@if (Auth::guest())
+
+ <script type="text/javascript">
+   window.location = "/";
+ </script>
+
+@else
+
 @extends('layout')
+
 @section('content')
   <!--Import jQuery before materialize.js-->
   <!-- <script type="text/javascript" src="js/jquery.js"></script>-->
-  
+    <div id="popBack"></div>
+
+  <div id="education_content"> 
+    <!--                                       Edication  Card                 -->
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDUCATION</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+            {!! Form::open(array('url' => '/template')) !!}
+              <form class="col s12 m12" action="">
+                <div class="row">
+                  <div class="input-field col s3 m3">
+                      {!! Form::text('education_date', '', ['class' => 'validate']) !!}
+                    <label class="active" for="date">Dates</label>
+                  </div>
+
+                  <div class="input-field col s5 m5 offset-s1 offset-m1">
+                    {!! Form::text('education_degree', '', ['class' => 'validate']) !!}
+                    <label class="active" for="degree">Degree</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('education_name', '', ['class' => 'validate']) !!}
+                    <label class="active" for="sch_name">School,college,university name</label>
+                  </div>
+                </div>
+                <div class="row" id="text">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('education_info', '', ['class' => 'validate']) !!}
+
+                    <label class="active" for="info_edic">Extra information about edication</label>
+                  </div>
+                   {!! Form::text('cv_id', '', ['class' => 'validate']) !!}
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action" id="add">
+                      <a class="btn-flat grey col s12 m12">+ ADD MORE</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+             {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+  </div>
+  <!-- workd edit popup start -->
+  <div id="work_content"> 
+    <!--              Work experience Card                           -->
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">WORK EXPERIENCE</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/workcreate')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m6">
+                    {!! Form::text('work_date', '', ['class' => 'validate']) !!}
+                    <label class="active" for="date">Dates</label>
+                  </div>
+
+                  <div class="input-field col s5 m6">
+                    {!! Form::text('work_profession', '', ['class' => 'validate']) !!}
+                    <label class="active" for="position">Position</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('work_company', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Company, organization name</label>
+                  </div>
+                </div>
+                <div class="row" id="textExp">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('work_info', '', ['class' => 'validate']) !!}
+                    <label class="active" for="info_exp">Extra information about experience</label>
+                  </div>
+                  {!! Form::text('cv_id', '', ['class' => 'validate']) !!}
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action" id="addExp">
+                      <a class="btn-flat grey col s12 m12" >+ ADD MORE</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+  </div>
+
+  <!-- workd edit popup end -->
+
   <div class="verticalAlign"></div>
   <div class="">
     <div class="row">
@@ -159,13 +293,13 @@
                  </div>
 <div id="sortable">
                 <div class="row">
-                  
+
                    <div class="edit">
                     <form action="">
                       <fieldset>
                         <legend>
                           <ul class="fieldset">
-                            <li ><a class="btn"><i class="material-icons">edit</i></a></li>
+                            <li><a class="btn" id="education_edit_icon"><i class="material-icons">edit</i></a></li>
                             <li class="upIcon"> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
                             <li class="downIcon"> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
@@ -175,28 +309,14 @@
                         </legend>
                     <div class="sectionWrapper">
                             <i class="material-icons left grey-text">school</i><h5 class="blue-text" name="desingText">EDUCATION</h5>
+                    @foreach($userEducations as $userEducation)
                     <div class="row"> 
-                      <span class=" grey-text text-darken-2"><b>2012-2013 AZƏRBAYCAN DÖVLƏT PEDAQOJİ UNİVERSİTETİ
+                      <span class=" grey-text text-darken-2"><b style="text-transform: uppercase">{{$userEducation->education_date}} {{$userEducation->education_name}}
                     </b></span> <br>
-                    <span class="grey-text text-darken-2">BAKALAVR</span>
-                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-                     a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro.</p>
+                    <span class="grey-text text-darken-2" style="text-transform: uppercase">{{$userEducation->education_degree}}</span>
+                    <p class="grey-text">{{$userEducation->education_info}}</p>
                     </div>
-                     
-
-                     <div class="row"> 
-                      <span class=" grey-text text-darken-2"><b>2012-2013 AZƏRBAYCAN DÖVLƏT PEDAQOJİ UNİVERSİTETİ</b></span> <br>
-                      <span class="grey-text text-darken-2">BAKALAVR</span>
-                      <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto
-                       a aspernatur ratione eos officia perspiciatis est porro.</p>
-                    </div>
-                      <div class="row"> 
-                      <span class=" grey-text text-darken-2"><b>2012-2013 AZƏRBAYCAN DÖVLƏT PEDAQOJİ UNİVERSİTETİ</b></span> <br>
-                      <span class="grey-text text-darken-2">BAKALAVR</span>
-                      <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto 
-                        a aspernatur ratione eos officia perspiciatis est porro.</p>
-
-                        </div>
+                     @endforeach
                       </fieldset>
 
                     </form>
@@ -205,7 +325,6 @@
 
 
             </div>
-                
                  
                 
             <div class="row">
@@ -216,7 +335,7 @@
                         <legend>
                        
                           <ul class="fieldset">
-                            <li><a class="btn"><i class="material-icons">edit</i></a></li>
+                            <li><a class="btn" id="workcontent_icon"><i class="material-icons">edit</i></a></li>
                             <li class="upIcon"> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
                             <li class="downIcon"> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
@@ -226,36 +345,14 @@
                         </legend>
               <div class="sectionWrapper">
               <i class="material-icons left grey-text">work</i><h5 class="blue-text " name="desingText">WORK EXPERIENCE</h5>
+              @foreach($userWorks as $userWork)
               <div class="row">
-                <span class=" grey-text text-darken-2"><b>2012-2013 MICROSOFT CORPORATION</b></span> <br>
-              <span class="grey-text text-darken-2">GRAPHIC AND WEB DESIGN</span>
-              <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto
-               a aspernatur ratione eos officia perspiciatis est porro.</p> 
+                <span class=" grey-text text-darken-2"><b style="text-transform: uppercase">{{$userWork->work_date}} {{$userWork->work_company}}</b></span> <br>
+              <span class="grey-text text-darken-2" style="text-transform: uppercase">{{$userWork->work_profession}}</span>
+              <p class="grey-text">{{$userWork->work_info}}</p> 
 
               </div>
-              <div class="row">
-                 <span class="grey-text text-darken-2"><b>2012-2013 APPLE INC  </b></span> <br>
-                <span class="grey-text text-darken-2">GRAPHIC AND WEB DESIGN</span>
-                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto
-                 a aspernatur ratione eos officia perspiciatis est porro.</p> 
-
-              </div>
-
-             
-
-              <div class="row">
-                <span class=" grey-text text-darken-2"><b>2012-2013 MICROSOFT CORPORATION</b></span> <br>
-                <span class="grey-text text-darken-2">GRAPHIC AND WEB DESIGN</span>
-                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro.</p> 
-
-              </div>
-
-              <div class="row">
-                <span class=" grey-text text-darken-2"><b>2012-2013 MICROSOFT CORPORATION</b></span> <br>
-                <span class="grey-text text-darken-2">GRAPHIC AND WEB DESIGN</span>
-                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro.</p> 
-
-              </div>
+              @endforeach
               </div>
                   </fieldset>
                 </form>
@@ -281,11 +378,49 @@
 
 
   </div>
+
+
+
 <script type="text/javascript" src="js/jquery.js"></script>
  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script type="text/javascript">
+$('#education_edit_icon').click(function(){
+
+      $("#popBack").fadeIn();
+      $("#education_content").fadeIn();
+      
+      return false;
+
+    });
+
+    $('#popBack').click(function(){
+
+      $("#popBack").fadeOut();
+      $("#education_content").fadeOut();
+
+      return false;
+
+    });
+
+    $('#workcontent_icon').click(function(){
+
+      $("#popBack").fadeIn();
+      $("#work_content").fadeIn();
+      
+      return false;
+
+    });
+
+    $('#popBack').click(function(){
+
+      $("#popBack").fadeOut();
+      $("#work_content").fadeOut();
+
+      return false;
+
+    });
     $(function() {
     $( "#sortable" ).sortable();
     $( "#sortable" ).disableSelection();
@@ -317,3 +452,4 @@
 );
 </script>
 @endsection
+@endif

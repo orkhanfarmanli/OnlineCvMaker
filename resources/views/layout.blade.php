@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Online CV Generator</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -19,7 +20,7 @@
 			  <li><a href="#!">one</a></li>
 			  <li><a href="#!">two</a></li>
 			  <li class="divider"></li>
-			  <li><a href="#!">three</a></li>
+			  <li><a href="{{ url('/logout') }}">Log out</a></li>
 	</ul>
   <nav>
   <div class="container">
@@ -27,7 +28,7 @@
 	    <div class="nav-wrapper">
 	      <a href="#!" class="brand-logo"><b>RESUME</b>CREATOR</a>
 	     <ul class="right hide-on-med-and-down">
-      			<li><a class="dropdown-button userBar" href="#!" data-activates="dropdown1"><img src="images/resumes.png"> Vahab Valiyev<i class="material-icons right">arrow_drop_down</i></a></li>
+      			<li><a class="dropdown-button userBar" href="#!" data-activates="dropdown1"><img src="images/resumes.png">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
    		 </ul>
 	    </div>
 	  </div>
@@ -35,7 +36,6 @@
   </nav>
 
 @yield('content')
-
 <script type="text/javascript" src="/js/materialize.min.js"></script>
 </body>
 </html>
