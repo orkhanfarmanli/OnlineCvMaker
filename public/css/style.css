@@ -285,6 +285,13 @@ label[for=checkbox], label[for=checkbox1]{
   margin-right: 10px;
   font-size: 30px;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  border-radius: 100%;
+  padding: 5px;
+  border: 1px solid transparent;
+}
+.innerIcons:hover{
+  border: 1px solid green;
 }
 .edit{
   color: orange;
