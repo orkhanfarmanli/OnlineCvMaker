@@ -14,8 +14,13 @@ Route::get('/template/{id}','templateController@deleteEdu');
 Route::get('/template/delete/work/{id}','templateController@deleteWork');
 Route::get('/template/updateedu/{id}','templateController@updateEdu');
 Route::post('/template/updateedu/add/{id}','templateController@updateAddEdu');
+
+Route::get('/template/updatepdata/{id}','templateController@updatePdata');
+Route::post('/template/updatepdata/add/{id}','templateController@updateAddPdata');
+
 Route::get('/template/updatework/{id}','templateController@updateWork');
 Route::post('/template/updatework/add/{id}','templateController@updateAddWork');
+
 Route::get('/select', 'selectController@select');
 Route::get('/template', 'templateController@template');
 Route::get('/test', 'templateController@test');

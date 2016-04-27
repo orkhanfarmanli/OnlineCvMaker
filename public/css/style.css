@@ -262,7 +262,10 @@ label[for=checkbox], label[for=checkbox1]{
 #workEdit:hover  .innerEditWork{
   display: block;
 }
-.innerEdit, .innerEditWork{
+#Pdata:hover .innerEditPData{
+  display: block;
+}
+.innerEdit, .innerEditWork, .innerEditPData{
   margin-top: 21px;
   width: auto;
   height: 15px;
@@ -274,6 +277,9 @@ label[for=checkbox], label[for=checkbox1]{
   display: none;
   font-size: 10px;
 }
+.innerEditPData i{
+  font-size: 40px !important;
+}
 .innerIcons{
   display: inline-block;
   margin-right: 10px;
@@ -283,7 +289,7 @@ label[for=checkbox], label[for=checkbox1]{
 .edit{
   color: orange;
 }
-.eduEdit, .workEdit{
+.eduEdit, .workEdit, .pDataEdit{
   display: none;
 width: auto;
 height: auto;

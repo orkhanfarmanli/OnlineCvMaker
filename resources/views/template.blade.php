@@ -238,6 +238,58 @@
       </div>
           
 </div>
+
+<div class="pDataEdit">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">PERSONAL DATA</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'pDataEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m6">
+                    {!! Form::text('personal_data_fname', '', ['class' => 'validate','id' => 'pDataPopFname']) !!}
+                    <label class="active" for="date">Full name</label>
+                  </div>
+
+                  <div class="input-field col s5 m6">
+                    {!! Form::text('personal_data_profession', '', ['class' => 'validate', 'id' => 'pDataPopProfession']) !!}
+                    <label class="active" for="position">Profession</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_data_bdate', '', ['class' => 'validate', 'id' => 'pDataPopBdate']) !!}
+                    <label class="active" for="com_name">Birth date</label>
+                  </div>
+                </div>
+                <div class="row" id="textExp">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_data_info', '', ['class' => 'validate', 'id' => 'pDataPopInfo']) !!}
+                    <label class="active" for="info_exp">Extra information</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
   <!-- workd edit popup end -->
 
   <div class="verticalAlign"></div>
@@ -277,25 +329,31 @@
             <img src="/images/1.png" class="responsive-img">
           </div>
           <div class="card-content">
+          @foreach($userPersonalContacts as $userPersonalContact)
             <blockquote class=" grey-text">
-              +994 55 885 73 09
+              {{$userPersonalContact->personal_contact_number}}
             </blockquote>
-
+          @endforeach
+          @foreach($userPersonalContacts as $userPersonalContact)
             <blockquote class=" grey-text">
-              knyaz.yaqublu@gmail.com
+             {{$userPersonalContact->personal_contact_email}}
             </blockquote>
-
+          @endforeach
+          @foreach($userPersonalContacts as $userPersonalContact)
             <blockquote class=" grey-text">
-              twitter.com@knyaz
+              {{$userPersonalContact->personal_contact_social}}
             </blockquote>
-
+          @endforeach
+          @foreach($userPersonalContacts as $userPersonalContact)
             <blockquote class=" grey-text">
-              www.knyazik.com
+              {{$userPersonalContact->personal_contact_web}}
             </blockquote>
-
+          @endforeach
+          @foreach($userPersonalContacts as $userPersonalContact)
             <blockquote class=" grey-text">
-              Ataturk ave.33 Baku Azerbaijan
+              {{$userPersonalContact->personal_contact_adress}}
             </blockquote>
+          @endforeach
             <div class="languages">
               <i class="material-icons left grey-text">language</i><h5 class="blue-text " name="desingText">LANGUAGES</h5>
               <div class="">
@@ -353,13 +411,7 @@
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
               <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <div>
-              <span class="grey-text text-darken-2">SKETCH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              </div>
+              <div id="rateYo"></div>
 
              </div>
              <div class="awards">
@@ -380,20 +432,19 @@
       <div class="col s12 m9 right white">
         <div class="card white darken-1">
           <div class="card-content grey-text">
-          <div>
-            <h2 class=" blue-text text-darken-3" name="desingText"><b>KNYAZ YAQUBOV</b></h2>
-            <h5 class="grey-text"><b>GRAPHIC DESIGNER</b></h5>
-            <h6 class="grey-text">Date of birth: 02.06.1989</h6>
+          @foreach($userPersonalDatas as $userPersonalData)
+          <div id="Pdata">
+                <div class="innerEditPData">
+                  <i class="material-icons innerIcons edit editIconPdata" name="{{$userPersonalData->personal_data_id}}">edit</i>
+                </div>
+            <h2 class=" blue-text text-darken-3" name="desingText"><b style="text-transform: uppercase">{{$userPersonalData->personal_data_fname}}</b></h2>
+            <h5 class="grey-text"><b style="text-transform: uppercase">{{$userPersonalData->personal_data_profession}}</b></h5>
+            <h6 class="grey-text">Date of birth: {{$userPersonalData->personal_data_bdate}}</h6>
 
-            <p class="grey-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia 
-              perspiciatis est porro. Earum pariatur hic eaque, est architecto odit quae cupiditate?Lorem ipsum dolor sit amet,
-               consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro. 
-               Earum pariatur hic eaque, est architecto odit quae cupiditate?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro. Earum pariatur hic eaque, est
-                 architecto odit quae cupiditate?</p>
+            <p class="grey-text">{{$userPersonalData->personal_data_info}}</p>
 
-                 </div>
+          </div>
+          @endforeach
 <div id="sortable">
                 <div class="row">
 
@@ -495,9 +546,8 @@
 
 
 <script type="text/javascript" src="js/jquery.js"></script>
- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
-
 <script type="text/javascript">
 
 $('.deleteIcon').click(function(){
@@ -539,6 +589,25 @@ $('.editIcon').click(function(){
                         $('#eduEditForm').attr("action", "/template/updateedu/add/"+eduRow.education_id+"")
                         $("#popBack").fadeIn();
                         $(".eduEdit").fadeIn();
+                } 
+    });
+});
+
+$('.editIconPdata').click(function(){
+   var editIdpData = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updatepdata/"+editIdpData+"",
+                success: function(pDataRow){ 
+                  console.log(pDataRow);
+                        // $(".eduEdit").append(editEduPopup);
+                        $('#pDataPopFname').val(pDataRow.personal_data_fname);
+                        $('#pDataPopProfession').val(pDataRow.personal_data_profession);
+                        $('#pDataPopBdate').val(pDataRow.personal_data_bdate);
+                        $('#pDataPopInfo').val(pDataRow.personal_data_info);
+                        $('#pDataEditForm').attr("action", "/template/updatepdata/add/"+pDataRow.personal_data_id+"")
+                        $("#popBack").fadeIn();
+                        $(".pDataEdit").fadeIn();
                 } 
     });
 });
@@ -585,7 +654,7 @@ $('#education_edit_icon').click(function(){
       $("#popBack").fadeOut();
       $(".eduEdit").fadeOut();
       $(".workEdit").fadeOut();
-
+      $(".pDataEdit").fadeOut();
       return false;
 
     });

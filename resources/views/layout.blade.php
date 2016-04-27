@@ -2,11 +2,17 @@
 <html>
 <head>
 	<title>Online CV Generator</title>
+	<!-- Latest compiled and minified CSS -->
+
+<!-- Latest compiled and minified JavaScript -->
+
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  	<link rel="stylesheet" href="/css/jquery.rateyo.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
     <script>
   $(function() {
