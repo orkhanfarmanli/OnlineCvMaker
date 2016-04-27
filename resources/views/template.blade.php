@@ -134,7 +134,110 @@
       </div>
 
   </div>
+<div class="eduEdit">
+                        <div class='col s5 m5'>
+        <div class='card-panel center-align white'>
+          <div class='row'>
+            <div class='card-content'>
+              <span class='card-title'>EDUCATION</span>
+            </div>  
+          </div> 
+          <div class='row'>
+            <div class='card-content'>
+            {!! Form::open(array('url' => '', 'id' => 'eduEditForm')) !!}
+              <form class='col s12 m12' action=''>
+                <div class='row'>
+                  <div class='input-field col s3 m3'>
+                      {!! Form::text('education_date', '', ['class' => 'validate', 'id' => 'eduPopDate']) !!}
+                    <label class='active' for='date'>Dates</label>
+                  </div>
 
+                  <div class='input-field col s5 m5 offset-s1 offset-m1'>
+                    {!! Form::text('education_degree', '', ['class' => 'validate', 'id' => 'eduPopDegree']) !!}
+                    <label class='active' for='degree'>Degree</label>
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class='input-field col s12 m12'>
+                    {!! Form::text('education_name', '', ['class' => 'validate','id' => 'eduPopName']) !!}
+                    <label class='active' for='sch_name'>School,college,university name</label>
+                  </div>
+                </div>
+                <div class='row' id='text'>
+                  <div class='input-field col s12 m12'>
+                    {!! Form::text('education_info', '', ['class' => 'validate', 'id' => 'eduPopInfo']) !!}
+
+                    <label class='active' for='info_edic'>Extra information about edication</label>
+                  </div>
+                   
+                </div>
+                <div class='row'>
+                  <div class='col s12 m12'>
+                    <div class='card-action right'>
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+             {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="workEdit">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">WORK EXPERIENCE</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'workEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m6">
+                    {!! Form::text('work_date', '', ['class' => 'validate','id' => 'workPopDate']) !!}
+                    <label class="active" for="date">Dates</label>
+                  </div>
+
+                  <div class="input-field col s5 m6">
+                    {!! Form::text('work_profession', '', ['class' => 'validate', 'id' => 'workPopProfession']) !!}
+                    <label class="active" for="position">Position</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('work_company', '', ['class' => 'validate', 'id' => 'workPopCompany']) !!}
+                    <label class="active" for="com_name">Company, organization name</label>
+                  </div>
+                </div>
+                <div class="row" id="textExp">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('work_info', '', ['class' => 'validate', 'id' => 'workPopInfo']) !!}
+                    <label class="active" for="info_exp">Extra information about experience</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
   <!-- workd edit popup end -->
 
   <div class="verticalAlign"></div>
@@ -171,7 +274,7 @@
        <div class="col s12 m3">
         <div class="card">
           <div class="card-image">
-            <img src="images/1.png" class="responsive-img">
+            <img src="/images/1.png" class="responsive-img">
           </div>
           <div class="card-content">
             <blockquote class=" grey-text">
@@ -299,7 +402,7 @@
                       <fieldset>
                         <legend>
                           <ul class="fieldset">
-                            <li><a class="btn" id="education_edit_icon"><i class="material-icons">edit</i></a></li>
+                            <li><a class="btn" id="education_edit_icon"><i class="material-icons">add</i></a></li>
                             <li class="upIcon"> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
                             <li class="downIcon"> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
@@ -310,12 +413,18 @@
                     <div class="sectionWrapper">
                             <i class="material-icons left grey-text">school</i><h5 class="blue-text" name="desingText">EDUCATION</h5>
                     @foreach($userEducations as $userEducation)
-                    <div class="row"> 
+
+                    <div class="row" id="eduEdit">
+                        <div class="innerEdit">
+                          <i class="material-icons innerIcons edit editIcon" name={{$userEducation->education_id}}>edit</i>
+                          <i class="material-icons innerIcons delete deleteIcon" name={{$userEducation->education_id}}>delete</i>
+                        </div>
                       <span class=" grey-text text-darken-2"><b style="text-transform: uppercase">{{$userEducation->education_date}} {{$userEducation->education_name}}
                     </b></span> <br>
                     <span class="grey-text text-darken-2" style="text-transform: uppercase">{{$userEducation->education_degree}}</span>
                     <p class="grey-text">{{$userEducation->education_info}}</p>
                     </div>
+  
                      @endforeach
                       </fieldset>
 
@@ -335,7 +444,7 @@
                         <legend>
                        
                           <ul class="fieldset">
-                            <li><a class="btn" id="workcontent_icon"><i class="material-icons">edit</i></a></li>
+                            <li><a class="btn" id="workcontent_icon"><i class="material-icons">add</i></a></li>
                             <li class="upIcon"> <a class="btn waves-effect waves-light"><i class="material-icons">keyboard_arrow_up</i></a></li>
                             <li class="downIcon"> <a class="btn"><i class="material-icons">keyboard_arrow_down</i></a></li>
                           </ul>
@@ -346,7 +455,11 @@
               <div class="sectionWrapper">
               <i class="material-icons left grey-text">work</i><h5 class="blue-text " name="desingText">WORK EXPERIENCE</h5>
               @foreach($userWorks as $userWork)
-              <div class="row">
+              <div class="row" id="workEdit">
+                         <div class="innerEditWork">
+                          <i class="material-icons innerIcons edit editIconWork" name={{$userWork->work_id}}>edit</i>
+                          <i class="material-icons innerIcons delete deleteIconWork" name={{$userWork->work_id}}>delete</i>
+                        </div>
                 <span class=" grey-text text-darken-2"><b style="text-transform: uppercase">{{$userWork->work_date}} {{$userWork->work_company}}</b></span> <br>
               <span class="grey-text text-darken-2" style="text-transform: uppercase">{{$userWork->work_profession}}</span>
               <p class="grey-text">{{$userWork->work_info}}</p> 
@@ -386,6 +499,70 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script type="text/javascript">
+
+$('.deleteIcon').click(function(){
+   var deleteId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/"+deleteId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+$('.deleteIconWork').click(function(){
+   var deleteIdWork = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/work/"+deleteIdWork+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+$('.editIcon').click(function(){
+   var editId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updateedu/"+editId+"",
+                success: function(eduRow){ 
+                  console.log(eduRow);
+                        // $(".eduEdit").append(editEduPopup);
+                        $('#eduPopDate').val(eduRow.education_date);
+                        $('#eduPopDegree').val(eduRow.education_degree);
+                        $('#eduPopName').val(eduRow.education_name);
+                        $('#eduPopInfo').val(eduRow.education_info);
+                        $('#eduEditForm').attr("action", "/template/updateedu/add/"+eduRow.education_id+"")
+                        $("#popBack").fadeIn();
+                        $(".eduEdit").fadeIn();
+                } 
+    });
+});
+
+$('.editIconWork').click(function(){
+   var editIdWork = $(this).attr('name');
+   $("#popBack").fadeIn();
+   $(".workEdit").fadeIn();
+    $.ajax({
+                type: "GET",
+                url: "/template/updatework/"+editIdWork+"",
+                success: function(workRow){ 
+                  console.log(workRow);
+                        // $(".eduEdit").append(editEduPopup);
+                        $('#workPopDate').val(workRow.work_date);
+                        $('#workPopProfession').val(workRow.work_profession);
+                        $('#workPopCompany').val(workRow.work_company);
+                        $('#workPopInfo').val(workRow.work_info);
+                        $('#workEditForm').attr("action", "/template/updatework/add/"+workRow.work_id+"")
+                        $("#popBack").fadeIn();
+                        $(".workEdit").fadeIn();
+                } 
+    });
+});
 $('#education_edit_icon').click(function(){
 
       $("#popBack").fadeIn();
@@ -399,6 +576,15 @@ $('#education_edit_icon').click(function(){
 
       $("#popBack").fadeOut();
       $("#education_content").fadeOut();
+
+      return false;
+
+    });
+    $('#popBack').click(function(){
+
+      $("#popBack").fadeOut();
+      $(".eduEdit").fadeOut();
+      $(".workEdit").fadeOut();
 
       return false;
 
@@ -428,25 +614,25 @@ $('#education_edit_icon').click(function(){
   $(document).ready(
 
       function(){
+
         $(".ball").click(function(){
-             
-              var a = $(this).attr("name");
-             $("[name=desingText]").removeClass("red-text blue-text teal-text purple-text");
-          
-
-          $("[name=desingText]").addClass(a);
-
-          
-       
+        var a = $(this).attr("name");
+        $("[name=desingText]").removeClass("red-text blue-text teal-text purple-text");
+        $("[name=desingText]").addClass(a);
+      
         });
 
       $(".upIcon").click(function () {
+
          $(this).parent().parent().parent().find(".sectionWrapper").hide("slow");
          $(this).parent().parent().parent().addClass("showField");
+
       });
       $(".downIcon").click(function () {
+
          $(this).parent().parent().parent().find(".sectionWrapper").show("slow");
          $(this).parent().parent().parent().removeClass("showField");
+
       });
 }
 );

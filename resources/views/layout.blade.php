@@ -28,7 +28,7 @@
 	    <div class="nav-wrapper">
 	      <a href="#!" class="brand-logo"><b>RESUME</b>CREATOR</a>
 	     <ul class="right hide-on-med-and-down">
-      			<li><a class="dropdown-button userBar" href="#!" data-activates="dropdown1"><img src="images/resumes.png">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      			<li><a class="dropdown-button userBar" href="#!" data-activates="dropdown1"><img src="/images/resumes.png">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
    		 </ul>
 	    </div>
 	  </div>

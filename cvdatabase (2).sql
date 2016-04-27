@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2016 at 03:18 AM
+-- Generation Time: Apr 27, 2016 at 03:25 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -40,16 +40,8 @@ CREATE TABLE `awards` (
 
 CREATE TABLE `cv` (
   `cv_id` int(11) NOT NULL,
-  `cv_name` varchar(255) NOT NULL,
+  `cv_name` varchar(255) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `phone_number` int(11) NOT NULL,
-  `birth_date` varchar(255) NOT NULL,
-  `adress` text NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `social_network` text NOT NULL,
-  `info` text NOT NULL,
-  `profession` varchar(255) NOT NULL,
   `draft` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,8 +49,8 @@ CREATE TABLE `cv` (
 -- Dumping data for table `cv`
 --
 
-INSERT INTO `cv` (`cv_id`, `cv_name`, `user_id`, `full_name`, `phone_number`, `birth_date`, `adress`, `email`, `social_network`, `info`, `profession`, `draft`) VALUES
-(1, 'VahabCv', 2, 'Vahab', 504265511, '03/11/1997', 'Baku, Mir Jalal 34, 39', 'valiyev.vahab@code.edu.az', 'fb.com/vahab.valiyev', 'More info about Vahab', 'Web Developer', 1);
+INSERT INTO `cv` (`cv_id`, `cv_name`, `user_id`, `draft`) VALUES
+(1, 'VahabCv', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -82,11 +74,8 @@ CREATE TABLE `educations` (
 --
 
 INSERT INTO `educations` (`education_id`, `cv_id`, `education_date`, `education_name`, `education_degree`, `education_info`, `updated_at`, `created_at`) VALUES
-(2, 1, '2013', 'Qafqaz University', 'Bachalor', 'World Economy 3rd class', '2016-04-23 03:57:20', '2016-04-23 03:57:20'),
-(3, 1, '2018', 'Qafqaz', 'Bachalor', 'adwe', '2016-04-23 04:50:14', '2016-04-23 04:50:14'),
-(4, 1, '2013-2017', 'Baku State University', 'Bachalor', 'Commerce Law', '2016-04-23 05:16:27', '2016-04-23 05:16:27'),
-(5, 1, '2014-2015', 'Code Academy', 'Master', 'Extra Information', '2016-04-23 05:45:58', '2016-04-23 05:45:58'),
-(6, 1, '2013-2018', 'Texniki Universitet', 'Bachalor', 'More information', '2016-04-23 08:04:18', '2016-04-23 08:04:18');
+(37, 1, '2013-2018', 'Qafqaz University', 'Bachalor', 'World Economy , ENG', '2016-04-27 00:06:49', '2016-04-26 15:55:06'),
+(38, 1, '2002-2013', 'FRITL updated', 'School', '7-11 classes', '2016-04-27 00:38:18', '2016-04-27 07:05:19');
 
 -- --------------------------------------------------------
 
@@ -142,6 +131,36 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `personal_contact`
+--
+
+CREATE TABLE `personal_contact` (
+  `personal_contact_id` int(11) NOT NULL,
+  `personal_contact_number` varchar(255) NOT NULL,
+  `personal_contact_adress` varchar(255) NOT NULL,
+  `personal_contact_email` varchar(255) NOT NULL,
+  `personal_contact_social` varchar(255) NOT NULL,
+  `cv_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_data`
+--
+
+CREATE TABLE `personal_data` (
+  `personal_data_id` int(11) NOT NULL,
+  `personal_data_fname` varchar(255) NOT NULL,
+  `personal_data_bdate` varchar(255) NOT NULL,
+  `personal_data_info` text NOT NULL,
+  `personal_data_profession` varchar(255) NOT NULL,
+  `cv_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `skills`
 --
 
@@ -173,7 +192,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Vahab', 'valiyev.vahab@gmail.com', '$2y$10$UmZ22IQ/tHTJBG3tKK7oIusrERQ/lynbuN3RXHpNJvsHj6y4fqWrO', 'nHl0HtItXwDkSv4UGWvj1FQ9BiZ9zCEAxjJcuHOtVoF61jdhrjOXCL9jv0xu', '2016-04-23 00:35:18', '2016-04-23 06:53:18'),
+(2, 'Vahab', 'valiyev.vahab@gmail.com', '$2y$10$UmZ22IQ/tHTJBG3tKK7oIusrERQ/lynbuN3RXHpNJvsHj6y4fqWrO', 'sv5ExerFX4LHmdZgnJFPcL7vF59KxEe1GGgqLxkNRjTum9NWczeXyq1VWCzY', '2016-04-23 00:35:18', '2016-04-26 17:39:34'),
 (3, 'Celil', 'celil.t@code.edu.az', '$2y$10$sdx0E9bHKcSdnZmR/Vc3HOooeKtCaU/ictVC6nTwxQXwXs3LcdQE6', 'KbtcZJvDyOCSEw3Ema2dPV9K4OT1t6UQ7vWv3YqE5pTvbkDqV0WCypmCUIIa', '2016-04-23 01:04:17', '2016-04-23 01:34:48');
 
 -- --------------------------------------------------------
@@ -198,7 +217,7 @@ CREATE TABLE `works` (
 --
 
 INSERT INTO `works` (`work_id`, `cv_id`, `work_date`, `work_company`, `work_profession`, `work_info`, `created_at`, `updated_at`) VALUES
-(1, 1, '2014-2018', 'Facebook', 'Web Developer', 'More info will be here', '2016-04-23 03:56:35', '2016-04-23 03:56:35');
+(6, 1, '2435', 'google', 'WEB DEVELOPER', 'asd', '2016-04-27 01:09:25', '2016-04-27 08:00:49');
 
 --
 -- Indexes for dumped tables
@@ -240,6 +259,20 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_token_index` (`token`);
 
 --
+-- Indexes for table `personal_contact`
+--
+ALTER TABLE `personal_contact`
+  ADD PRIMARY KEY (`personal_contact_id`),
+  ADD KEY `cv_id` (`cv_id`);
+
+--
+-- Indexes for table `personal_data`
+--
+ALTER TABLE `personal_data`
+  ADD PRIMARY KEY (`personal_data_id`),
+  ADD KEY `cv_id` (`cv_id`);
+
+--
 -- Indexes for table `skills`
 --
 ALTER TABLE `skills`
@@ -278,12 +311,22 @@ ALTER TABLE `cv`
 -- AUTO_INCREMENT for table `educations`
 --
 ALTER TABLE `educations`
-  MODIFY `education_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `education_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
   MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `personal_contact`
+--
+ALTER TABLE `personal_contact`
+  MODIFY `personal_contact_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `personal_data`
+--
+ALTER TABLE `personal_data`
+  MODIFY `personal_data_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `skills`
 --
@@ -298,7 +341,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `works`
 --
 ALTER TABLE `works`
-  MODIFY `work_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `work_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
@@ -326,6 +369,18 @@ ALTER TABLE `educations`
 --
 ALTER TABLE `languages`
   ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`cv_id`) REFERENCES `cv` (`cv_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `personal_contact`
+--
+ALTER TABLE `personal_contact`
+  ADD CONSTRAINT `personal_contact_ibfk_1` FOREIGN KEY (`cv_id`) REFERENCES `cv` (`cv_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `personal_data`
+--
+ALTER TABLE `personal_data`
+  ADD CONSTRAINT `personal_data_ibfk_1` FOREIGN KEY (`cv_id`) REFERENCES `cv` (`cv_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `skills`
