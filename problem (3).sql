@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2016 at 07:06 AM
+-- Generation Time: May 02, 2016 at 02:51 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -37,7 +37,7 @@ CREATE TABLE `awards` (
 --
 
 INSERT INTO `awards` (`award_id`, `cv_id`, `award_text`) VALUES
-(5, 1, 'asd');
+(5, 1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .');
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,8 @@ CREATE TABLE `educations` (
 
 INSERT INTO `educations` (`education_id`, `cv_id`, `education_date`, `education_name`, `education_degree`, `education_info`, `updated_at`, `created_at`) VALUES
 (37, 1, '2013-2018', 'Qafqaz University', 'Bachalor', 'World Economy , ENG', '2016-04-27 00:06:49', '2016-04-26 15:55:06'),
-(38, 1, '2002-2013', 'FRITL updated', 'School', '7-11 classes', '2016-04-27 00:38:18', '2016-04-27 07:05:19');
+(38, 1, '2002-2013', 'FRITL', 'School', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .', '2016-05-01 23:32:18', '2016-04-27 07:05:19'),
+(40, 1, '2011-2012', 'Araz Courses', 'Collage', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .', '2016-05-02 06:32:04', '2016-05-02 06:32:04');
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,10 @@ CREATE TABLE `languages` (
 --
 
 INSERT INTO `languages` (`language_id`, `cv_id`, `language_name`, `language_level`) VALUES
-(4, 1, 'China', 'Intermediate');
+(5, 1, 'ENGLISH', 'Intermediate'),
+(6, 1, 'RUSSIAN', 'Advanced'),
+(7, 1, 'TURKISH', 'Native'),
+(8, 1, 'FRENCH', 'Beginner');
 
 -- --------------------------------------------------------
 
@@ -150,10 +154,8 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 
 CREATE TABLE `personal_contact` (
   `personal_contact_id` int(11) NOT NULL,
-  `personal_contact_number` varchar(255) NOT NULL,
-  `personal_contact_adress` varchar(255) NOT NULL,
-  `personal_contact_email` varchar(255) NOT NULL,
-  `personal_contact_social` varchar(255) NOT NULL,
+  `personal_contact_name` varchar(255) NOT NULL,
+  `personal_contact_data` varchar(255) NOT NULL,
   `cv_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -161,11 +163,11 @@ CREATE TABLE `personal_contact` (
 -- Dumping data for table `personal_contact`
 --
 
-INSERT INTO `personal_contact` (`personal_contact_id`, `personal_contact_number`, `personal_contact_adress`, `personal_contact_email`, `personal_contact_social`, `cv_id`) VALUES
-(4, '050 426 55 11', 'Baku', 'valiyev.vahab@gmail.com', 'fb.com/vahab', 1),
-(13, '', '', '', '', 1),
-(14, '', '', '', '', 1),
-(15, '', '', '', '', 1);
+INSERT INTO `personal_contact` (`personal_contact_id`, `personal_contact_name`, `personal_contact_data`, `cv_id`) VALUES
+(20, 'Phone', '050 426 55 11', 1),
+(21, 'Email', 'vahab.v@code.edu.az', 1),
+(23, 'Adress', 'Baku', 1),
+(24, 'Social', 'fb.com/vahab.valiyev', 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +189,7 @@ CREATE TABLE `personal_data` (
 --
 
 INSERT INTO `personal_data` (`personal_data_id`, `personal_data_fname`, `personal_data_bdate`, `personal_data_info`, `personal_data_profession`, `cv_id`) VALUES
-(1, 'Vahab Valiyev', '11/03/1997', 'lorem info Vahabdfgdfg', 'Web Developer', 1);
+(1, 'Vahab Valiyev', '11/03/1997', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Web Developer', 1);
 
 -- --------------------------------------------------------
 
@@ -207,7 +209,10 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`skill_id`, `cv_id`, `skill_name`, `skill_level`) VALUES
-(2, 1, 'PHP', 'Good');
+(2, 1, 'PHP', 'Good'),
+(3, 1, 'JavaScript', 'Excellent'),
+(4, 1, 'HTML&CSS', 'Excellent'),
+(5, 1, 'MySQL', 'Good');
 
 -- --------------------------------------------------------
 
@@ -255,7 +260,8 @@ CREATE TABLE `works` (
 --
 
 INSERT INTO `works` (`work_id`, `cv_id`, `work_date`, `work_company`, `work_profession`, `work_info`, `created_at`, `updated_at`) VALUES
-(6, 1, '2435', 'google', 'WEB DEVELOPER', 'asd', '2016-04-27 01:09:25', '2016-04-27 08:00:49');
+(6, 1, '2013', 'google', 'WEB DEVELOPER', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .', '2016-05-01 23:33:08', '2016-04-27 08:00:49'),
+(7, 1, '2014', 'Facebook', 'PHP Programmer', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .', '2016-05-02 06:33:32', '2016-05-02 06:33:32');
 
 --
 -- Indexes for dumped tables
@@ -349,17 +355,17 @@ ALTER TABLE `cv`
 -- AUTO_INCREMENT for table `educations`
 --
 ALTER TABLE `educations`
-  MODIFY `education_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `education_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `personal_contact`
 --
 ALTER TABLE `personal_contact`
-  MODIFY `personal_contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `personal_contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `personal_data`
 --
@@ -369,7 +375,7 @@ ALTER TABLE `personal_data`
 -- AUTO_INCREMENT for table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -379,7 +385,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `works`
 --
 ALTER TABLE `works`
-  MODIFY `work_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `work_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --

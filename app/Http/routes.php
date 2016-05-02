@@ -13,13 +13,13 @@
 Route::get('/template/{id}','templateController@deleteEdu');
 Route::get('/template/delete/work/{id}','templateController@deleteWork');
 
-Route::get('/template/delete/phone/{id}','templateController@deletePhone');
 
 Route::get('/template/updateedu/{id}','templateController@updateEdu');
 
 Route::get('/template/updatephone/{id}','templateController@updatePhone');
 Route::post('/template/updatephone/add/{id}','templateController@updateAddPhone');
 Route::post('/template/addnumber', 'templateController@insertNumber');
+Route::get('/template/delete/phone/{id}','templateController@deletePhone');
 
 Route::get('/template/updatelanguage/{id}','templateController@updateLanguage');
 Route::post('/template/updatelanguage/add/{id}','templateController@updateAddLanguage');

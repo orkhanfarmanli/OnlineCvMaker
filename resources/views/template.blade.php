@@ -362,79 +362,7 @@
 <!-- Language popups end -->
 
 
-<!-- Adress popups -->
 
-<div class="addAdressPop">
-      <div class="col s5 m5">
-        <div class="card-panel center-align white">
-          <div class="row">
-            <div class="card-content">
-              <span class="card-title">ADD ADRESS NETWORK</span>
-            </div>  
-          </div> 
-          <div class="row">
-            <div class="card-content">
-              {!! Form::open(array('url' => '/template/addadress')) !!}
-                <div class="row">
-                  <div class="input-field col s12 m12">
-                    {!! Form::text('personal_contact_adress', '', ['class' => 'validate']) !!}
-                    <label class="active" for="com_name">Adress</label>
-                  </div>
-                </div>
-                
-                <div class="row">
-                  <div class="col s12 m12">
-                    <div class="card-action right">
-                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
-                    </div>
-                  </div>
-                </div>
-              {!! Form::close() !!}
-              
-            </div>
-          </div>
-          
-        </div>
-      </div>
-          
-</div>
-
-<div class="editAdressPop">
-      <div class="col s5 m5">
-        <div class="card-panel center-align white">
-          <div class="row">
-            <div class="card-content">
-              <span class="card-title">EDIT ADRESS</span>
-            </div>  
-          </div> 
-        <div class="row">
-            <div class="card-content">
-              {!! Form::open(array('url' => '', 'id' => 'adressEditForm')) !!}
-                <div class="row">
-                  <div class="input-field col s3 m12">
-                    {!! Form::text('personal_contact_adress', '', ['class' => 'validate','id' => 'adressEditInput']) !!}
-                    <label class="active" for="date">Adress</label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col s12 m12">
-                    <div class="card-action right">
-                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
-                    </div>
-                  </div>
-                </div>
-              {!! Form::close() !!}
-              
-            
-          </div>    
-        </div>
-      </div>
-          
-</div>
-</div>
-
-<!-- Adress popups end -->
 
 <!-- Skills popups -->
 
@@ -537,7 +465,7 @@
               {!! Form::open(array('url' => '/template/addawards')) !!}
                 <div class="row">
                   <div class="input-field col s12 m12">
-                    {!! Form::text('award_text', '', ['class' => 'validate']) !!}
+                    {!! Form::text('award_text', '', ['class' => 'active validate']) !!}
                     <label class="active" for="com_name">Awards</label>
                   </div>
                 </div>               
@@ -594,86 +522,15 @@
 
 <!--Awards popups end -->
 
-<!-- Social popups -->
 
-<div class="addSocialPop">
-      <div class="col s5 m5">
-        <div class="card-panel center-align white">
-          <div class="row">
-            <div class="card-content">
-              <span class="card-title">ADD SOCIAL NETWORK</span>
-            </div>  
-          </div> 
-          <div class="row">
-            <div class="card-content">
-              {!! Form::open(array('url' => '/template/addsocial')) !!}
-                <div class="row">
-                  <div class="input-field col s12 m12">
-                    {!! Form::text('personal_contact_social', '', ['class' => 'validate']) !!}
-                    <label class="active" for="com_name">Social Network  Link</label>
-                  </div>
-                </div>
-                
-                <div class="row">
-                  <div class="col s12 m12">
-                    <div class="card-action right">
-                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
-                    </div>
-                  </div>
-                </div>
-              {!! Form::close() !!}
-              
-            </div>
-          </div>
-          
-        </div>
-      </div>
-          
-</div>
 
-<div class="editSocialPop">
-      <div class="col s5 m5">
-        <div class="card-panel center-align white">
-          <div class="row">
-            <div class="card-content">
-              <span class="card-title">EDIT SOCIAL NETWORK</span>
-            </div>  
-          </div> 
-        <div class="row">
-            <div class="card-content">
-              {!! Form::open(array('url' => '', 'id' => 'socialEditForm')) !!}
-                <div class="row">
-                  <div class="input-field col s3 m12">
-                    {!! Form::text('personal_contact_social', '', ['class' => 'validate','id' => 'socialEditInput']) !!}
-                    <label class="active" for="date">Social Network Link</label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col s12 m12">
-                    <div class="card-action right">
-                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
-                    </div>
-                  </div>
-                </div>
-              {!! Form::close() !!}
-              
-            
-          </div>    
-        </div>
-      </div>
-          
-</div>
-</div>
-
-<!-- Social popups end -->
-
+<!-- Contact Popup -->
 <div class="addPhonePop">
       <div class="col s5 m5">
         <div class="card-panel center-align white">
           <div class="row">
             <div class="card-content">
-              <span class="card-title">ADD NUMBER</span>
+              <span class="card-title">ADD CONTACT</span>
             </div>  
           </div> 
           <div class="row">
@@ -681,8 +538,14 @@
               {!! Form::open(array('url' => '/template/addnumber')) !!}
                 <div class="row">
                   <div class="input-field col s12 m12">
-                    {!! Form::text('personal_contact_number', '', ['class' => 'validate', 'id' => 'pContactPopPhone']) !!}
-                    <label class="active" for="com_name">PHONE NUMBER</label>
+                    {!! Form::select('personal_contact_name', ['Phone' => 'Phone', 'Email' => 'E-mail', 'Adress' => 'Adress', 'Social' => 'Social Network']) !!}
+                    <label class="active" for="com_name">Contact Method</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_contact_data', '', ['class' => 'validate', 'id' => 'pContactPopPhone']) !!}
+                    <label class="active" for="com_name">Contact Adress</label>
                   </div>
                 </div>
                 
@@ -715,8 +578,15 @@
             <div class="card-content">
               {!! Form::open(array('url' => '', 'id' => 'phoneEditForm')) !!}
                 <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::select('personal_contact_name', ['Phone' => 'Phone', 'Email' => 'E-mail', 'Adress' => 'Adress', 'Social' => 'Social Network'], "" ,['class' => 'validate','id' => 'phoneNameEditInput']) !!}
+                    <label class="active" for="com_name">Contact Method</label>
+                  </div>
+                </div>
+
+                <div class="row">
                   <div class="input-field col s3 m12">
-                    {!! Form::text('personal_contact_number', '', ['class' => 'validate','id' => 'phoneEditInput']) !!}
+                    {!! Form::text('personal_contact_data', '', ['class' => 'validate','id' => 'phoneDataEditInput']) !!}
                     <label class="active" for="date">Contact data</label>
                   </div>
                 </div>
@@ -737,7 +607,7 @@
           
 </div>
 </div>
-
+<!-- Contact Popup end -->
 
 <div class="addEmailPop">
       <div class="col s5 m5">
@@ -848,55 +718,26 @@
             <img src="/images/1.png" class="responsive-img">
           </div>
           <div class="card-content">
+          <i class="material-icons left grey-text" style="margin-top: 12px;">contacts</i>
+          <h5 class="blue-text " name="desingText" id="contactHead">CONTACT<i class="material-icons edit addIcon addPhone" name="">add</i></h5>
           @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class="contactEdit grey-text">
+          <div class="contactRow">
                 <div class="innerEditContact">
-                  <i class="material-icons innerIcons edit addIcon addPhone" name="">add</i>
                   <i class="material-icons innerIcons edit editIcon editPhone" name={{$userPersonalContact->personal_contact_id}}>edit</i>
                   <i class="material-icons innerIcons delete deleteIcon deletePhone" name={{$userPersonalContact->personal_contact_id}}>delete</i>
                 </div>
-              {{$userPersonalContact->personal_contact_number}}
-            </blockquote>
-          @endforeach
-          @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class="contactEdit grey-text">
-                <div class="innerEditContact">
-                  <i class="material-icons innerIcons edit addIcon addEmail" name="">add</i>
-                  <i class="material-icons innerIcons edit editIcon editEmail" name={{$userPersonalContact->personal_contact_id}}>edit</i>
-                  <i class="material-icons innerIcons delete deleteIcon deleteEmail" name={{$userPersonalContact->personal_contact_id}}>delete</i>
-                </div>
-             {{$userPersonalContact->personal_contact_email}}
-            </blockquote>
-          @endforeach
-          @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class="contactEdit grey-text">
-                          <div class="innerEditContact">
-                  <i class="material-icons innerIcons edit addIcon addSocial" name="">add</i>
-                  <i class="material-icons innerIcons edit editIcon editSocial" name={{$userPersonalContact->personal_contact_id}}>edit</i>
-                  <i class="material-icons innerIcons delete deleteIcon deleteSocial" name={{$userPersonalContact->personal_contact_id}}>delete</i>
-                </div>
-              {{$userPersonalContact->personal_contact_social}}
-            </blockquote>
-          @endforeach
-          @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class="contactEdit grey-text">
-                          <div class="innerEditContact">
-                  <i class="material-icons innerIcons edit addIcon addContact" name="">add</i>
-                  <i class="material-icons innerIcons edit editIcon editContact" name={{$userPersonalContact->personal_contact_id}}>edit</i>
-                  <i class="material-icons innerIcons delete deleteIcon deleteContact" name={{$userPersonalContact->personal_contact_id}}>delete</i>
-                </div>
-              {{$userPersonalContact->personal_contact_web}}
-            </blockquote>
-          @endforeach
-          @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class="contactEdit grey-text">
-                <div class="innerEditContact">
-                  <i class="material-icons innerIcons edit addIcon addAdress" name="">add</i>
-                  <i class="material-icons innerIcons edit editIcon editAdress" name={{$userPersonalContact->personal_contact_id}}>edit</i>
-                  <i class="material-icons innerIcons delete deleteIcon deleteAdress" name={{$userPersonalContact->personal_contact_id}}>delete</i>
-                </div>
-              {{$userPersonalContact->personal_contact_adress}}
-            </blockquote>
+              @if($userPersonalContact->personal_contact_name === 'Phone')
+              <i class="material-icons contactIcon">phone</i>
+              @elseif($userPersonalContact->personal_contact_name === 'Email')
+              <i class="material-icons contactIcon">email</i>
+              @elseif($userPersonalContact->personal_contact_name === 'Adress')
+              <i class="material-icons contactIcon">location_on</i>
+              @else
+              <i class="material-icons contactIcon">people</i>
+              @endif
+              <span class="levelHolder">{{$userPersonalContact->personal_contact_data}}</span>
+            
+          </div>
           @endforeach
             <div class="languages">
               <i class="material-icons left grey-text">language</i>
@@ -955,7 +796,7 @@
 
 
       <div class="col s12 m9 right white">
-        <div class="card white darken-1">
+        <div class="card white darken-1 noShadow">
           <div class="card-content grey-text">
           @foreach($userPersonalDatas as $userPersonalData)
           <div id="Pdata">
@@ -1074,9 +915,6 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    Materialize.updateTextFields();
-  });
 $('.addAwards').click(function(){
 
       $("#popBack").fadeIn();
@@ -1091,12 +929,15 @@ $('.editAwards').click(function(){
     $.ajax({
                 type: "GET",
                 url: "/template/updateawards/"+editAwardsId+"",
-                success: function(awardsRow){ 
+                success: function(awardsRow){
+
                   console.log(awardsRow);
                         $('#awardsTextEditInput').val(awardsRow.award_text);                        
-                        $('#awardsEditForm').attr("action", "/template/updateawards/add/"+editAwardsId+"")
+                        $('#awardsEditForm').attr("action", "/template/updateawards/add/"+editAwardsId+"");
                         $("#popBack").fadeIn();
                         $(".editAwardsPop").fadeIn();
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                 } 
     });
 });
@@ -1131,7 +972,9 @@ $('.editLanguage').click(function(){
                   console.log(languageRow);
                         $('#languageNameEditInput').val(languageRow.language_name);
                         $('#languageLevelEditInput').val(languageRow.language_level);
-                        $('#languageEditForm').attr("action", "/template/updatelanguage/add/"+editLanguageId+"")
+                        $('#languageEditForm').attr("action", "/template/updatelanguage/add/"+editLanguageId+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".editLanguagePop").fadeIn();
                 } 
@@ -1168,7 +1011,9 @@ $('.editAdress').click(function(){
                 success: function(adressRow){ 
                   console.log(adressRow);
                         $('#adressEditInput').val(adressRow.personal_contact_adress);
-                        $('#adressEditForm').attr("action", "/template/updateadress/add/"+editAdressId+"")
+                        $('#adressEditForm').attr("action", "/template/updateadress/add/"+editAdressId+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".editAdressPop").fadeIn();
                 } 
@@ -1206,7 +1051,9 @@ $('.editSkills').click(function(){
                   console.log(skillsRow);
                         $('#skillsNameEditInput').val(skillsRow.skill_name);
                         $('#skillsLevelEditInput').val(skillsRow.skill_level);
-                        $('#skillsEditForm').attr("action", "/template/updateskills/add/"+editSkillsId+"")
+                        $('#skillsEditForm').attr("action", "/template/updateskills/add/"+editSkillsId+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".editSkillsPop").fadeIn();
                 } 
@@ -1242,7 +1089,9 @@ $('.editSocial').click(function(){
                 success: function(socialRow){ 
                   console.log(socialRow);
                         $('#socialEditInput').val(socialRow.personal_contact_social);
-                        $('#socialEditForm').attr("action", "/template/updatesocial/add/"+editSocialId+"")
+                        $('#socialEditForm').attr("action", "/template/updatesocial/add/"+editSocialId+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".editSocialPop").fadeIn();
                 } 
@@ -1277,8 +1126,11 @@ $('.editPhone').click(function(){
                 url: "/template/updatephone/"+editPhoneId+"",
                 success: function(phoneRow){ 
                   console.log(phoneRow);
-                        $('#phoneEditInput').val(phoneRow.personal_contact_number);
-                        $('#phoneEditForm').attr("action", "/template/updatephone/add/"+editPhoneId+"")
+                        $('#phoneNameEditInput').val(phoneRow.personal_contact_name);
+                        $('#phoneDataEditInput').val(phoneRow.personal_contact_data);
+                        $('#phoneEditForm').attr("action", "/template/updatephone/add/"+editPhoneId+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".editPhonePop").fadeIn();
                 } 
@@ -1315,7 +1167,9 @@ $('.editEmail').click(function(){
                 success: function(emailRow){ 
                   console.log(emailRow);
                         $('#emailEditInput').val(emailRow.personal_contact_email);
-                        $('#emailEditForm').attr("action", "/template/updateemail/add/"+editEmailId+"")
+                        $('#emailEditForm').attr("action", "/template/updateemail/add/"+editEmailId+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".editEmailPop").fadeIn();
                 } 
@@ -1371,7 +1225,9 @@ $('.editIconEdu').click(function(){
                         $('#eduPopDegree').val(eduRow.education_degree);
                         $('#eduPopName').val(eduRow.education_name);
                         $('#eduPopInfo').val(eduRow.education_info);
-                        $('#eduEditForm').attr("action", "/template/updateedu/add/"+eduRow.education_id+"")
+                        $('#eduEditForm').attr("action", "/template/updateedu/add/"+eduRow.education_id+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".eduEdit").fadeIn();
                 } 
@@ -1390,7 +1246,9 @@ $('.editIconPdata').click(function(){
                         $('#pDataPopProfession').val(pDataRow.personal_data_profession);
                         $('#pDataPopBdate').val(pDataRow.personal_data_bdate);
                         $('#pDataPopInfo').val(pDataRow.personal_data_info);
-                        $('#pDataEditForm').attr("action", "/template/updatepdata/add/"+pDataRow.personal_data_id+"")
+                        $('#pDataEditForm').attr("action", "/template/updatepdata/add/"+pDataRow.personal_data_id+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".pDataEdit").fadeIn();
                 } 
@@ -1411,7 +1269,9 @@ $('.editIconWork').click(function(){
                         $('#workPopProfession').val(workRow.work_profession);
                         $('#workPopCompany').val(workRow.work_company);
                         $('#workPopInfo').val(workRow.work_info);
-                        $('#workEditForm').attr("action", "/template/updatework/add/"+workRow.work_id+"")
+                        $('#workEditForm').attr("action", "/template/updatework/add/"+workRow.work_id+"");
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
                         $("#popBack").fadeIn();
                         $(".workEdit").fadeIn();
                 } 
@@ -1446,6 +1306,7 @@ $('#education_edit_icon').click(function(){
       $(".editPhonePop").fadeOut();
             $(".addSocialPop").fadeOut();
       $(".editSocialPop").fadeOut();
+      $(".editSkillsPop").fadeOut();
       $(".addAdressPop").fadeOut();
       $(".editAdressPop").fadeOut();
             $(".addLanguagePop").fadeOut();

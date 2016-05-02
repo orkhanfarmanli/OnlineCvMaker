@@ -46,11 +46,7 @@ class templateController extends Controller
           
           return $pDataRow;
     }
-    function updatePhone($id){
-          $phoneRow = PersonalContactModel::Find($id);
-          
-          return $phoneRow;
-    }
+
     function deleteEdu($id){
            DB::table('educations')->where('education_id', '=', $id)->delete();
            return ; 
@@ -59,19 +55,7 @@ class templateController extends Controller
            DB::table('works')->where('work_id', '=', $id)->delete();
            return ; 
     }
-    function updateAddPhone(Request $request, $id){
-        DB::table('personal_contact')
-            ->where('personal_contact_id', $id)
-            ->update(array('personal_contact_number' => $request->personal_contact_number));
-        $userEducations = EducationModel::all();
-        $userWorks = WorkModel::all();
-        $userPersonalDatas = PersonalDataModel::all();
-        $userPersonalContacts = PersonalContactModel::all();
-        $languages = LanguagesModel::all();
-        $skills = SkillsModel::all();
-        $awards = AwardsModel::all();
-        return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
-    }
+
     function updateAddEdu(Request $request, $id){
         DB::table('educations')
             ->where('education_id', $id)
@@ -113,7 +97,7 @@ class templateController extends Controller
     }
 
     function insertNumber(Request $request){
-        DB::table('personal_contact')->insert(['personal_contact_number' => $request->personal_contact_number, 'cv_id' => 1]);
+        DB::table('personal_contact')->insert(['personal_contact_name' => $request->personal_contact_name, 'personal_contact_data' => $request->personal_contact_data , 'cv_id' => 1]);
         $userEducations = EducationModel::all();
         $userWorks = WorkModel::all();
         $userPersonalDatas = PersonalDataModel::all();
@@ -124,49 +108,18 @@ class templateController extends Controller
         return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
     }
     function deletePhone($id){
-           DB::table('personal_contact')->where('personal_contact_id', '=', $id)->update(['personal_contact_number' => ""]);
+           DB::table('personal_contact')->where('personal_contact_id', '=', $id)->delete();
            return ; 
     }
-    function deleteEmail($id){
-           DB::table('personal_contact')->where('personal_contact_id', '=', $id)->update(['personal_contact_email' => ""]);
-           return ; 
+    function updatePhone($id){
+          $phoneRow = PersonalContactModel::Find($id);
+          
+          return $phoneRow;
     }
-    function insertEmail(Request $request){
-        DB::table('personal_contact')->insert(['personal_contact_email' => $request->personal_contact_email, 'cv_id' => 1]);
-        $userEducations = EducationModel::all();
-        $userWorks = WorkModel::all();
-        $userPersonalDatas = PersonalDataModel::all();
-        $userPersonalContacts = PersonalContactModel::all();
-        $languages = LanguagesModel::all();
-        $skills = SkillsModel::all();
-      $awards = AwardsModel::all();
-        return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
-    }
-    function updateAddEmail(Request $request, $id){
+    function updateAddPhone(Request $request, $id){
         DB::table('personal_contact')
             ->where('personal_contact_id', $id)
-            ->update(array('personal_contact_email' => $request->personal_contact_email));
-        $userEducations = EducationModel::all();
-        $userWorks = WorkModel::all();
-        $userPersonalDatas = PersonalDataModel::all();
-        $userPersonalContacts = PersonalContactModel::all();
-        $languages = LanguagesModel::all();
-        $skills = SkillsModel::all();
-        $awards = AwardsModel::all();
-        return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
-}
-    function updateEmail($id){
-          $emailRow = PersonalContactModel::Find($id);
-          
-          return $emailRow;
-    }
-
-    function deleteSocial($id){
-           DB::table('personal_contact')->where('personal_contact_id', '=', $id)->update(['personal_contact_social' => ""]);
-           return ; 
-    }
-    function insertSocial(Request $request){
-        DB::table('personal_contact')->insert(['personal_contact_social' => $request->personal_contact_social, 'cv_id' => 1]);
+            ->update(array('personal_contact_name' => $request->personal_contact_name, 'personal_contact_data' => $request->personal_contact_data));
         $userEducations = EducationModel::all();
         $userWorks = WorkModel::all();
         $userPersonalDatas = PersonalDataModel::all();
@@ -176,59 +129,6 @@ class templateController extends Controller
         $awards = AwardsModel::all();
         return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
     }
-    function updateAddSocial(Request $request, $id){
-        DB::table('personal_contact')
-            ->where('personal_contact_id', $id)
-            ->update(array('personal_contact_social' => $request->personal_contact_social));
-        $userEducations = EducationModel::all();
-        $userWorks = WorkModel::all();
-        $userPersonalDatas = PersonalDataModel::all();
-        $userPersonalContacts = PersonalContactModel::all();     
-       $languages = LanguagesModel::all();
-        $skills = SkillsModel::all();
-      $awards = AwardsModel::all();
-        return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
-    }
-    function updateSocial($id){
-          $socialRow = PersonalContactModel::Find($id);
-          
-          return $socialRow;
-    }
-
-     function deleteAdress($id){
-           DB::table('personal_contact')->where('personal_contact_id', '=', $id)->update(['personal_contact_adress' => ""]);
-           return ; 
-    }
-    function insertAdress(Request $request){
-        DB::table('personal_contact')->insert(['personal_contact_adress' => $request->personal_contact_adress, 'cv_id' => 1]);
-        $userEducations = EducationModel::all();
-        $userWorks = WorkModel::all();
-        $userPersonalDatas = PersonalDataModel::all();
-        $userPersonalContacts = PersonalContactModel::all();
-        $languages = LanguagesModel::all();
-        $skills = SkillsModel::all();
-      $awards = AwardsModel::all();
-        return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
-    }
-    function updateAddAdress(Request $request, $id){
-        DB::table('personal_contact')
-            ->where('personal_contact_id', $id)
-            ->update(array('personal_contact_adress' => $request->personal_contact_adress));
-        $userEducations = EducationModel::all();
-        $userWorks = WorkModel::all();
-        $userPersonalDatas = PersonalDataModel::all();
-        $userPersonalContacts = PersonalContactModel::all();
-        $languages = LanguagesModel::all();
-        $skills = SkillsModel::all();
-       $awards = AwardsModel::all();
-        return view('template', compact('awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));      
-    }
-    function updateAdress($id){
-          $adressRow = PersonalContactModel::Find($id);
-          
-          return $adressRow;
-    }
-
     function deleteLanguage($id){
            DB::table('languages')->where('language_id', '=', $id)->delete();
            return ; 
