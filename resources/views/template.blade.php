@@ -53,13 +53,6 @@
                 </div>
                 <div class="row">
                   <div class="col s12 m12">
-                    <div class="card-action" id="add">
-                      <a class="btn-flat grey col s12 m12">+ ADD MORE</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col s12 m12">
                     <div class="card-action right">
                       {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
                     </div>
@@ -111,13 +104,7 @@
                   </div>
                   {!! Form::text('cv_id', '', ['class' => 'validate']) !!}
                 </div>
-                <div class="row">
-                  <div class="col s12 m12">
-                    <div class="card-action" id="addExp">
-                      <a class="btn-flat grey col s12 m12" >+ ADD MORE</a>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="row">
                   <div class="col s12 m12">
                     <div class="card-action right">
@@ -252,18 +239,18 @@
               {!! Form::open(array('url' => '', 'id' => 'pDataEditForm')) !!}
                 <div class="row">
                   <div class="input-field col s3 m6">
-                    {!! Form::text('personal_data_fname', '', ['class' => 'validate','id' => 'pDataPopFname']) !!}
+                    {!! Form::text('personal_data_fname', '', ['class' => 'active','id' => 'pDataPopFname']) !!}
                     <label class="active" for="date">Full name</label>
                   </div>
 
                   <div class="input-field col s5 m6">
-                    {!! Form::text('personal_data_profession', '', ['class' => 'validate', 'id' => 'pDataPopProfession']) !!}
+                    {!! Form::text('personal_data_profession', '', ['class' => 'active', 'id' => 'pDataPopProfession']) !!}
                     <label class="active" for="position">Profession</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12 m12">
-                    {!! Form::text('personal_data_bdate', '', ['class' => 'validate', 'id' => 'pDataPopBdate']) !!}
+                    {!! Form::text('personal_data_bdate', '', ['class' => 'active', 'id' => 'pDataPopBdate']) !!}
                     <label class="active" for="com_name">Birth date</label>
                   </div>
                 </div>
@@ -288,6 +275,538 @@
         </div>
       </div>
           
+</div>
+
+<!-- Language popups -->
+
+<div class="addLanguagePop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD LANGUAGE</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addlanguage')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('language_name', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Language</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('language_level', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Level</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editLanguagePop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT LANGUAGE</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'languageEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('language_name', '', ['class' => 'validate','id' => 'languageNameEditInput']) !!}
+                    <label class="active" for="date">Language</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('language_level', '', ['class' => 'validate','id' => 'languageLevelEditInput']) !!}
+                    <label class="active" for="date">Level</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
+</div>
+
+<!-- Language popups end -->
+
+
+<!-- Adress popups -->
+
+<div class="addAdressPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD ADRESS NETWORK</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addadress')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_contact_adress', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Adress</label>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editAdressPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT ADRESS</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'adressEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('personal_contact_adress', '', ['class' => 'validate','id' => 'adressEditInput']) !!}
+                    <label class="active" for="date">Adress</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
+</div>
+
+<!-- Adress popups end -->
+
+<!-- Skills popups -->
+
+<div class="addSkillsPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD SKILL</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addskills')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('skill_name', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('skill_level', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Level</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editSkillsPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT SKILL</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'skillsEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('skill_name', '', ['class' => 'validate','id' => 'skillsNameEditInput']) !!}
+                    <label class="active" for="date">Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('skill_level', '', ['class' => 'validate','id' => 'skillsLevelEditInput']) !!}
+                    <label class="active" for="date">Level</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
+</div>
+
+<!--Skills popups end -->
+
+
+
+<!-- Awards popups -->
+
+<div class="addAwardsPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD AWARD</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addawards')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('award_text', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Awards</label>
+                  </div>
+                </div>               
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editAwardsPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT AWARD</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'awardsEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('award_text', '', ['class' => 'validate','id' => 'awardsTextEditInput']) !!}
+                    <label class="active" for="date">Awards</label>
+                  </div>
+                </div>               
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
+</div>
+
+<!--Awards popups end -->
+
+<!-- Social popups -->
+
+<div class="addSocialPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD SOCIAL NETWORK</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addsocial')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_contact_social', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">Social Network  Link</label>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editSocialPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT SOCIAL NETWORK</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'socialEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('personal_contact_social', '', ['class' => 'validate','id' => 'socialEditInput']) !!}
+                    <label class="active" for="date">Social Network Link</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
+</div>
+
+<!-- Social popups end -->
+
+<div class="addPhonePop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD NUMBER</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addnumber')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_contact_number', '', ['class' => 'validate', 'id' => 'pContactPopPhone']) !!}
+                    <label class="active" for="com_name">PHONE NUMBER</label>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editPhonePop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT CONTACT</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'phoneEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('personal_contact_number', '', ['class' => 'validate','id' => 'phoneEditInput']) !!}
+                    <label class="active" for="date">Contact data</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
+</div>
+
+
+<div class="addEmailPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD EMAIL</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '/template/addemail')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::text('personal_contact_email', '', ['class' => 'validate']) !!}
+                    <label class="active" for="com_name">E-MAIL</label>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+
+<div class="editEmailPop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">EDIT EMAIL</span>
+            </div>  
+          </div> 
+        <div class="row">
+            <div class="card-content">
+              {!! Form::open(array('url' => '', 'id' => 'emailEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s3 m12">
+                    {!! Form::text('personal_contact_email', '', ['class' => 'validate','id' => 'emailEditInput']) !!}
+                    <label class="active" for="date">Contact email</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('save', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            
+          </div>    
+        </div>
+      </div>
+          
+</div>
 </div>
 
   <!-- workd edit popup end -->
@@ -330,96 +849,102 @@
           </div>
           <div class="card-content">
           @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class=" grey-text">
+            <blockquote class="contactEdit grey-text">
+                <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit addIcon addPhone" name="">add</i>
+                  <i class="material-icons innerIcons edit editIcon editPhone" name={{$userPersonalContact->personal_contact_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deletePhone" name={{$userPersonalContact->personal_contact_id}}>delete</i>
+                </div>
               {{$userPersonalContact->personal_contact_number}}
             </blockquote>
           @endforeach
           @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class=" grey-text">
+            <blockquote class="contactEdit grey-text">
+                <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit addIcon addEmail" name="">add</i>
+                  <i class="material-icons innerIcons edit editIcon editEmail" name={{$userPersonalContact->personal_contact_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteEmail" name={{$userPersonalContact->personal_contact_id}}>delete</i>
+                </div>
              {{$userPersonalContact->personal_contact_email}}
             </blockquote>
           @endforeach
           @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class=" grey-text">
+            <blockquote class="contactEdit grey-text">
+                          <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit addIcon addSocial" name="">add</i>
+                  <i class="material-icons innerIcons edit editIcon editSocial" name={{$userPersonalContact->personal_contact_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteSocial" name={{$userPersonalContact->personal_contact_id}}>delete</i>
+                </div>
               {{$userPersonalContact->personal_contact_social}}
             </blockquote>
           @endforeach
           @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class=" grey-text">
+            <blockquote class="contactEdit grey-text">
+                          <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit addIcon addContact" name="">add</i>
+                  <i class="material-icons innerIcons edit editIcon editContact" name={{$userPersonalContact->personal_contact_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteContact" name={{$userPersonalContact->personal_contact_id}}>delete</i>
+                </div>
               {{$userPersonalContact->personal_contact_web}}
             </blockquote>
           @endforeach
           @foreach($userPersonalContacts as $userPersonalContact)
-            <blockquote class=" grey-text">
+            <blockquote class="contactEdit grey-text">
+                <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit addIcon addAdress" name="">add</i>
+                  <i class="material-icons innerIcons edit editIcon editAdress" name={{$userPersonalContact->personal_contact_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteAdress" name={{$userPersonalContact->personal_contact_id}}>delete</i>
+                </div>
               {{$userPersonalContact->personal_contact_adress}}
             </blockquote>
           @endforeach
             <div class="languages">
-              <i class="material-icons left grey-text">language</i><h5 class="blue-text " name="desingText">LANGUAGES</h5>
-              <div class="">
-              <span class="grey-text text-darken-2">ENGLISH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>         
+              <i class="material-icons left grey-text">language</i>
+              <h5 class="blue-text " name="desingText" id="languageHead">LANGUAGES<i class="material-icons edit addIcon addLanguage" name="">add</i></h5>
+              @foreach($languages as $language)
+              <div class="languageRow">
+               <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit editIcon editLanguage" name={{$language->language_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteLanguage" name={{$language->language_id}}>delete</i>
+                </div>
+              <span class="grey-text text-darken-2">{{$language->language_name}}</span> 
+              <span class="levelHolder">{{$language->language_level}}</span>      
               </div>
-              <div class="">
-              <span class="grey-text text-darken-2">RUSSIAN</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              </div>
-              <div class="">
-          <span class="grey-text text-darken-2">SPANISH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              </div>
-              <div>
-              <span class="grey-text text-darken-2">TURKISH</span> <i class="material-icons tiny right blue-text"  name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text  " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              </div>
+              @endforeach
+
             </div>
            
             <div class="skills">
-              
-
-           
+                      
             
-              <i class="material-icons left grey-text">list</i><h5 class="blue-text  " name="desingText">SKILLS</h5>
-              <div>
-              <span class="grey-text text-darken-2">PHOTOSHOP</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
+              <i class="material-icons left grey-text">list</i><h5 class="blue-text  " name="desingText" id="skillsHead">SKILLS<i class="material-icons edit addIcon addSkills" name="">add</i></h5>
+              @foreach($skills as $skill)
+              <div class="skillsRow">
+                 <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit editIcon editSkills" name={{$skill->skill_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteSkills" name={{$skill->skill_id}}>delete</i>
+                </div>
+              <span class="grey-text text-darken-2">{{$skill->skill_name}}</span>
+              <span class="levelHolder">{{$skill->skill_level}}</span>
               </div>
-              <div>
-              <span class="grey-text text-darken-2">HTML/CSS</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              </div>
-              <span class="grey-text text-darken-2">ILLUSTRATOR</span> <i class="material-icons tiny right blue-text" name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <i class="material-icons tiny right blue-text " name="desingText">stars</i>
-              <div id="rateYo"></div>
+             @endforeach
+            </div>
 
-             </div>
+
              <div class="awards">
 
-              <i class="material-icons left grey-text">grade</i><h5 class="blue-text" name="desingText">AWARDS</h5>
-              <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae a ipsa fugit. Iusto a aspernatur ratione eos officia perspiciatis est porro. Earum pariatur hic eaque, est architecto odit quae cupiditate?Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <i class="material-icons left grey-text">grade</i><h5 class="blue-text" name="desingText" id="awardsHead">AWARDS<i class="material-icons edit addIcon addAwards" name="">add</i></h5>
+              @foreach($awards as $award)
+              <div class="awardsRow">
+                 <div class="innerEditContact">
+                  <i class="material-icons innerIcons edit editIcon editAwards" name={{$award->award_id}}>edit</i>
+                  <i class="material-icons innerIcons delete deleteIcon deleteAwards" name={{$award->award_id}}>delete</i>
+                </div>
+                <p class="grey-text">{{$award->award_text}}</p>
+              </div>
+              
+              @endforeach
             </div>
-            <a class="btn grey black-text"><i class="material-icons center">add</i> <span>ADD MORE</span></a>
 
           </div>
 
@@ -467,8 +992,8 @@
 
                     <div class="row" id="eduEdit">
                         <div class="innerEdit">
-                          <i class="material-icons innerIcons edit editIcon" name={{$userEducation->education_id}}>edit</i>
-                          <i class="material-icons innerIcons delete deleteIcon" name={{$userEducation->education_id}}>delete</i>
+                          <i class="material-icons innerIcons edit editIcon editIconEdu" name={{$userEducation->education_id}}>edit</i>
+                          <i class="material-icons innerIcons delete deleteIcon deleteIconEdu" name={{$userEducation->education_id}}>delete</i>
                         </div>
                       <span class=" grey-text text-darken-2"><b style="text-transform: uppercase">{{$userEducation->education_date}} {{$userEducation->education_name}}
                     </b></span> <br>
@@ -525,7 +1050,7 @@
             </div>
             </div>
 
-            <a class="btn grey black-text"><i class="material-icons center">add</i> <span>ADD MORE</span></a>
+            
 
             </div>
            
@@ -549,8 +1074,268 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript">
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+$('.addAwards').click(function(){
 
-$('.deleteIcon').click(function(){
+      $("#popBack").fadeIn();
+      $(".addAwardsPop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editAwards').click(function(){
+   var editAwardsId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updateawards/"+editAwardsId+"",
+                success: function(awardsRow){ 
+                  console.log(awardsRow);
+                        $('#awardsTextEditInput').val(awardsRow.award_text);                        
+                        $('#awardsEditForm').attr("action", "/template/updateawards/add/"+editAwardsId+"")
+                        $("#popBack").fadeIn();
+                        $(".editAwardsPop").fadeIn();
+                } 
+    });
+});
+
+$('.deleteAwards').click(function(){
+   var deleteAwardsId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/awards/"+deleteAwardsId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+$('.addLanguage').click(function(){
+
+      $("#popBack").fadeIn();
+      $(".addLanguagePop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editLanguage').click(function(){
+   var editLanguageId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updatelanguage/"+editLanguageId+"",
+                success: function(languageRow){ 
+                  console.log(languageRow);
+                        $('#languageNameEditInput').val(languageRow.language_name);
+                        $('#languageLevelEditInput').val(languageRow.language_level);
+                        $('#languageEditForm').attr("action", "/template/updatelanguage/add/"+editLanguageId+"")
+                        $("#popBack").fadeIn();
+                        $(".editLanguagePop").fadeIn();
+                } 
+    });
+});
+
+$('.deleteLanguage').click(function(){
+   var deleteLanguageId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/language/"+deleteLanguageId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+
+$('.addAdress').click(function(){
+
+      $("#popBack").fadeIn();
+      $(".addAdressPop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editAdress').click(function(){
+   var editAdressId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updateadress/"+editAdressId+"",
+                success: function(adressRow){ 
+                  console.log(adressRow);
+                        $('#adressEditInput').val(adressRow.personal_contact_adress);
+                        $('#adressEditForm').attr("action", "/template/updateadress/add/"+editAdressId+"")
+                        $("#popBack").fadeIn();
+                        $(".editAdressPop").fadeIn();
+                } 
+    });
+});
+
+$('.deleteAdress').click(function(){
+   var deleteAdressId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/adress/"+deleteAdressId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+
+$('.addSkills').click(function(){
+
+      $("#popBack").fadeIn();
+      $(".addSkillsPop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editSkills').click(function(){
+   var editSkillsId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updateskills/"+editSkillsId+"",
+                success: function(skillsRow){ 
+                  console.log(skillsRow);
+                        $('#skillsNameEditInput').val(skillsRow.skill_name);
+                        $('#skillsLevelEditInput').val(skillsRow.skill_level);
+                        $('#skillsEditForm').attr("action", "/template/updateskills/add/"+editSkillsId+"")
+                        $("#popBack").fadeIn();
+                        $(".editSkillsPop").fadeIn();
+                } 
+    });
+});
+
+$('.deleteSkills').click(function(){
+   var deleteSkillsId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/skills/"+deleteSkillsId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+$('.addSocial').click(function(){
+
+      $("#popBack").fadeIn();
+      $(".addSocialPop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editSocial').click(function(){
+   var editSocialId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updatesocial/"+editSocialId+"",
+                success: function(socialRow){ 
+                  console.log(socialRow);
+                        $('#socialEditInput').val(socialRow.personal_contact_social);
+                        $('#socialEditForm').attr("action", "/template/updatesocial/add/"+editSocialId+"")
+                        $("#popBack").fadeIn();
+                        $(".editSocialPop").fadeIn();
+                } 
+    });
+});
+
+$('.deleteSocial').click(function(){
+   var deleteSocialId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/social/"+deleteSocialId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+$('.addPhone').click(function(){
+
+      $("#popBack").fadeIn();
+      $(".addPhonePop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editPhone').click(function(){
+   var editPhoneId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updatephone/"+editPhoneId+"",
+                success: function(phoneRow){ 
+                  console.log(phoneRow);
+                        $('#phoneEditInput').val(phoneRow.personal_contact_number);
+                        $('#phoneEditForm').attr("action", "/template/updatephone/add/"+editPhoneId+"")
+                        $("#popBack").fadeIn();
+                        $(".editPhonePop").fadeIn();
+                } 
+    });
+});
+
+$('.deletePhone').click(function(){
+   var deleteContactId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/phone/"+deleteContactId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+
+$('.addEmail').click(function(){
+
+      $("#popBack").fadeIn();
+      $(".addEmailPop").fadeIn();
+      
+      return false;
+
+    });
+
+$('.editEmail').click(function(){
+   var editEmailId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updateemail/"+editEmailId+"",
+                success: function(emailRow){ 
+                  console.log(emailRow);
+                        $('#emailEditInput').val(emailRow.personal_contact_email);
+                        $('#emailEditForm').attr("action", "/template/updateemail/add/"+editEmailId+"")
+                        $("#popBack").fadeIn();
+                        $(".editEmailPop").fadeIn();
+                } 
+    });
+});
+
+$('.deleteEmail').click(function(){
+   var deleteEmailId = $(this).attr('name');
+   var row = $(this).parent().parent();
+        $.ajax({
+                type: "GET",
+                url: "/template/delete/email/"+deleteEmailId+"",
+                success: function(){ 
+                    row.remove();
+                 } 
+            });
+   });
+
+
+$('.deleteIconEdu').click(function(){
    var deleteId = $(this).attr('name');
    var row = $(this).parent().parent();
         $.ajax({
@@ -574,7 +1359,7 @@ $('.deleteIconWork').click(function(){
             });
    });
 
-$('.editIcon').click(function(){
+$('.editIconEdu').click(function(){
    var editId = $(this).attr('name');
     $.ajax({
                 type: "GET",
@@ -655,6 +1440,18 @@ $('#education_edit_icon').click(function(){
       $(".eduEdit").fadeOut();
       $(".workEdit").fadeOut();
       $(".pDataEdit").fadeOut();
+      $(".addEmailPop").fadeOut();
+      $(".editEmailPop").fadeOut();
+      $(".addPhonePop").fadeOut();
+      $(".editPhonePop").fadeOut();
+            $(".addSocialPop").fadeOut();
+      $(".editSocialPop").fadeOut();
+      $(".addAdressPop").fadeOut();
+      $(".editAdressPop").fadeOut();
+            $(".addLanguagePop").fadeOut();
+      $(".editLanguagePop").fadeOut();
+         $(".addAwardsPop").fadeOut();
+      $(".editAwardsPop").fadeOut();
       return false;
 
     });

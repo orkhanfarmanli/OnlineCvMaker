@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2016 at 03:25 AM
+-- Generation Time: May 04, 2016 at 07:06 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cvdatabase`
+-- Database: `problem`
 --
 
 -- --------------------------------------------------------
@@ -31,6 +31,13 @@ CREATE TABLE `awards` (
   `cv_id` int(11) NOT NULL,
   `award_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `awards`
+--
+
+INSERT INTO `awards` (`award_id`, `cv_id`, `award_text`) VALUES
+(5, 1, 'asd');
 
 -- --------------------------------------------------------
 
@@ -87,8 +94,15 @@ CREATE TABLE `languages` (
   `language_id` int(11) NOT NULL,
   `cv_id` int(11) NOT NULL,
   `language_name` varchar(255) NOT NULL,
-  `language_level` int(11) NOT NULL
+  `language_level` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`language_id`, `cv_id`, `language_name`, `language_level`) VALUES
+(4, 1, 'China', 'Intermediate');
 
 -- --------------------------------------------------------
 
@@ -143,6 +157,16 @@ CREATE TABLE `personal_contact` (
   `cv_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `personal_contact`
+--
+
+INSERT INTO `personal_contact` (`personal_contact_id`, `personal_contact_number`, `personal_contact_adress`, `personal_contact_email`, `personal_contact_social`, `cv_id`) VALUES
+(4, '050 426 55 11', 'Baku', 'valiyev.vahab@gmail.com', 'fb.com/vahab', 1),
+(13, '', '', '', '', 1),
+(14, '', '', '', '', 1),
+(15, '', '', '', '', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -158,6 +182,13 @@ CREATE TABLE `personal_data` (
   `cv_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `personal_data`
+--
+
+INSERT INTO `personal_data` (`personal_data_id`, `personal_data_fname`, `personal_data_bdate`, `personal_data_info`, `personal_data_profession`, `cv_id`) VALUES
+(1, 'Vahab Valiyev', '11/03/1997', 'lorem info Vahabdfgdfg', 'Web Developer', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -168,8 +199,15 @@ CREATE TABLE `skills` (
   `skill_id` int(11) NOT NULL,
   `cv_id` int(11) NOT NULL,
   `skill_name` varchar(255) NOT NULL,
-  `skill_level` int(11) NOT NULL
+  `skill_level` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`skill_id`, `cv_id`, `skill_name`, `skill_level`) VALUES
+(2, 1, 'PHP', 'Good');
 
 -- --------------------------------------------------------
 
@@ -192,7 +230,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Vahab', 'valiyev.vahab@gmail.com', '$2y$10$UmZ22IQ/tHTJBG3tKK7oIusrERQ/lynbuN3RXHpNJvsHj6y4fqWrO', 'sv5ExerFX4LHmdZgnJFPcL7vF59KxEe1GGgqLxkNRjTum9NWczeXyq1VWCzY', '2016-04-23 00:35:18', '2016-04-26 17:39:34'),
+(2, 'Vahab', 'valiyev.vahab@gmail.com', '$2y$10$UmZ22IQ/tHTJBG3tKK7oIusrERQ/lynbuN3RXHpNJvsHj6y4fqWrO', 'kRI6igkvJbQ18uRZOgupbFb7THBwVDVGYj0xkvXmpwp6LtafCxr3cGqFXhri', '2016-04-23 00:35:18', '2016-05-04 07:54:47'),
 (3, 'Celil', 'celil.t@code.edu.az', '$2y$10$sdx0E9bHKcSdnZmR/Vc3HOooeKtCaU/ictVC6nTwxQXwXs3LcdQE6', 'KbtcZJvDyOCSEw3Ema2dPV9K4OT1t6UQ7vWv3YqE5pTvbkDqV0WCypmCUIIa', '2016-04-23 01:04:17', '2016-04-23 01:34:48');
 
 -- --------------------------------------------------------
@@ -301,7 +339,7 @@ ALTER TABLE `works`
 -- AUTO_INCREMENT for table `awards`
 --
 ALTER TABLE `awards`
-  MODIFY `award_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `award_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `cv`
 --
@@ -316,22 +354,22 @@ ALTER TABLE `educations`
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `personal_contact`
 --
 ALTER TABLE `personal_contact`
-  MODIFY `personal_contact_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `personal_contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `personal_data`
 --
 ALTER TABLE `personal_data`
-  MODIFY `personal_data_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `personal_data_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --

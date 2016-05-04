@@ -262,10 +262,22 @@ label[for=checkbox], label[for=checkbox1]{
 #workEdit:hover  .innerEditWork{
   display: block;
 }
+.contactEdit:hover .innerEditContact{
+  display: block;
+}
+.languageRow:hover .innerEditContact{
+  display: block;
+}
+.skillsRow:hover .innerEditContact{
+  display: block;
+}
+.awardsRow:hover .innerEditContact{
+  display: block;
+}
 #Pdata:hover .innerEditPData{
   display: block;
 }
-.innerEdit, .innerEditWork, .innerEditPData{
+.innerEdit, .innerEditWork, .innerEditPData, .innerEditContact{
   margin-top: 21px;
   width: auto;
   height: 15px;
@@ -277,6 +289,21 @@ label[for=checkbox], label[for=checkbox1]{
   display: none;
   font-size: 10px;
 }
+.innerEditContact{
+  right: 0% !important;
+  margin: 0 !important;
+  font-size: 5px !important;
+  padding-bottom: 20px;
+  z-index: 999;
+}
+.innerEditContact i{
+  padding: 0 !important;
+  margin-right: 5px !important;
+  font-size: 25px !important;
+}
+.addIcon{
+  color: green !important;
+}
 .innerEditPData i{
   font-size: 40px !important;
 }
@@ -287,16 +314,11 @@ label[for=checkbox], label[for=checkbox1]{
   cursor: pointer;
   transition: all 0.1s ease-in-out;
   border-radius: 100%;
-  padding: 5px;
-  border: 1px solid transparent;
-}
-.innerIcons:hover{
-  border: 1px solid green;
 }
 .edit{
   color: orange;
 }
-.eduEdit, .workEdit, .pDataEdit{
+.eduEdit, .workEdit, .pDataEdit, .editPhonePop, .addPhonePop, .editEmailPop, .addEmailPop, .addSocialPop, .editSocialPop, .addAdressPop, .editAdressPop,.addLanguagePop,.editLanguagePop,.addSkillsPop,.editSkillsPop,.addAwardsPop,.editAwardsPop{
   display: none;
 width: auto;
 height: auto;
@@ -305,4 +327,25 @@ left:50%;
 transform: translateX(-50%);
 z-index: 9999;
 position: fixed;
+}
+#languageHead:hover .addLanguage{
+  display: inline;
+}
+#skillsHead:hover .addSkills{
+  display: inline;
+}
+#awardsHead:hover .addAwards{
+  display: inline;
+}
+.addLanguage, .addSkills, .addAwards{
+  margin: 0 !important;
+  padding: 0 !important;
+  display: none;
+  font-size: 22px !important;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.levelHolder{
+  position: absolute;
+  right: 8%;
 }
