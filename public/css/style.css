@@ -23,8 +23,8 @@
 .transparent {
   box-shadow: none; }
   .transparent ul a {
-    border: 1px solid white;
-    border-radius: 20px; }
+    
+     }
 
 .mainMiddle {
   text-align: center;
@@ -63,7 +63,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #15cb84 !important;
+    background-color: transparent !important;
     border-radius: 20px; }
     nav ul .userBar img {
       margin-right: 10px;
@@ -380,4 +380,7 @@ select{
 }
 .profileImg:hover .imgWrapper{
   display: block;
+}
+.buttonCreate{
+  color: white;
 }

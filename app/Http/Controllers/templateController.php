@@ -21,24 +21,59 @@ class templateController extends Controller
       DB::table('cv')->insert(['cv_name' => $username, 'user_id' => $userid]);
       $userNewCv = DB::table('cv')->where('user_id', $userid)->orderBy('created_at', 'desc')->first();
       $userNewCvId = $userNewCv->cv_id;
+
+      // Default template fields
+
       DB::table('personal_data')->insert(['personal_data_fname' => $username, 'personal_data_bdate' => "11/03/1996", 'personal_data_info' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 'personal_data_profession' => "WEB DEVELOPER", 'cv_id' => $userNewCvId]);
+
+
+      DB::table('personal_contact')->insert(['personal_contact_name' => "Email", 'personal_contact_data' => "example@asancv.com" , 'cv_id' => $userNewCvId]);
+      DB::table('personal_contact')->insert(['personal_contact_name' => "Phone", 'personal_contact_data' => "050 000 00 00" , 'cv_id' => $userNewCvId]);
+
+      DB::table('languages')->insert(['language_name' => 'English', 'language_level' => 'Advanced', 'cv_id' => $userNewCvId]);
+      DB::table('languages')->insert(['language_name' => 'Russian', 'language_level' => 'Native', 'cv_id' => $userNewCvId]);
+      DB::table('skills')->insert(['skill_name' => 'Photoshop', 'skill_level' => 'Excellent', 'cv_id' => $userNewCvId]);
+      DB::table('skills')->insert(['skill_name' => 'PHP', 'skill_level' => 'Good', 'cv_id' => $userNewCvId]);
+      DB::table('awards')->insert(['award_text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in  cupidatat non', 'cv_id' => $userNewCvId]);
+
+     DB::table('works')->insert(['work_date' => '2013 - 2016', 'cv_id' => $userNewCvId, 'work_company' => 'Google', 'work_profession' => 'WEB DEVELOPER', 'work_info' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid']);
+
+      DB::table('educations')->insert(['education_date' => '2008-2012', 'cv_id' => $userNewCvId, 'education_name' => 'University of Oxford', 'education_degree' => 'Computer Science', 'education_info' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid']);
+      // Default template fields end
+
       return redirect("cv/$userNewCvId");
     }
     function template($id){
-        $userEducations = EducationModel::where('cv_id', $id)->get();
-        $userWorks = WorkModel::where('cv_id', '=', $id)->get();
-        $userPersonalDatas = PersonalDataModel::where('cv_id', $id)->get();
-        $userPersonalContacts = PersonalContactModel::where('cv_id', $id)->get();
-        $languages = LanguagesModel::where('cv_id', $id)->get();
-        $skills = SkillsModel::where('cv_id', $id)->get();
-        $awards = AwardsModel::where('cv_id', $id)->get();
-        $cvId = $id;
-    	return view('template', compact('cvId','awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
+        $cvCheck = DB::table('cv')->where('cv_id', $id)->first();
+        if($cvCheck->user_id==Auth::user()->id){
+            $userEducations = EducationModel::where('cv_id', $id)->get();
+            $userWorks = WorkModel::where('cv_id', '=', $id)->get();
+            $userPersonalDatas = PersonalDataModel::where('cv_id', $id)->get();
+            $userPersonalContacts = PersonalContactModel::where('cv_id', $id)->get();
+            $languages = LanguagesModel::where('cv_id', $id)->get();
+            $skills = SkillsModel::where('cv_id', $id)->get();
+            $awards = AwardsModel::where('cv_id', $id)->get();
+            $cvId = $id;
+        	  return view('template', compact('cvId','awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
+        }else{
+          return redirect("/");
+        }
 
     }
     function test(){
@@ -196,7 +231,11 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 'pers
 
 
     function userArea($id){
+      if($id==Auth::user()->id){
       $userCvs = DB::table('cv')->where('user_id', $id)->get();
         return view('userarea', compact('id', 'userCvs'));
+      }else{
+        return redirect("/");  
+      }
     }
 }
