@@ -23,8 +23,8 @@
 </head>
 <body>
 	<ul id="dropdown1" class="dropdown-content">
-			  <li><a href="#!">one</a></li>
-			  <li><a href="#!">two</a></li>
+			  <li><a href="/">Home</a></li>
+			  <li><a href="/userarea/{{Auth::user()->id}}">Profile</a></li>
 			  <li class="divider"></li>
 			  <li><a href="{{ url('/logout') }}">Log out</a></li>
 	</ul>
