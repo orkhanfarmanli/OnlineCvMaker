@@ -23,6 +23,9 @@ Route::group(['middleware' => ['web']], function () {
 	function () {
 	    return view('welcome');
 	});
+	Route::get('/template/updateimage/{id}','templateController@updateImage');
+	Route::post('/template/imageadd/{id}/{id2}', 'templateController@insertImage');
+
 	Route::get('/template/updateedu/{id}','templateController@updateEdu');
 	Route::post('/template/updateedu/add/{id}/{id2}','templateController@updateAddEdu');
 	Route::get('/edudelete/{id}','templateController@deleteEdu');

@@ -13,8 +13,43 @@ use App\PersonalContactModel;
 use App\LanguagesModel;
 use App\SkillsModel;
 use App\AwardsModel;
+use Input;
+use Validator;
+use Session;
 class templateController extends Controller
 {
+      function updateImage($id){
+          $imageRow = PersonalDataModel::Find($id);
+          
+          return $imageRow;
+    }
+    function insertImage(Request $request, $id, $id2){
+       // getting all of the post data
+            $file = $request->file('image');
+             if ($request->file('image')->isValid()) {
+                $destinationPath = 'uploads'; // upload path
+                $extension = $request->file('image')->getClientOriginalExtension(); // getting image extension
+                $fileName = rand(11111,99999).'.'.$extension; // renameing image
+                $request->file('image')->move($destinationPath, $fileName); // uploading file to given path
+                // sending back with message
+
+                $fullUrl = '/'.$destinationPath.'/'.$fileName;
+                 DB::table('personal_data')
+            ->where('personal_data_id', $id)
+            ->update(array('image_url' => $fullUrl));
+      return redirect("cv/$id2");
+
+
+                Session::flash('success', 'Upload successfully'); 
+                return Redirect::to("/cv/$id2");
+              }
+              else {
+                // sending back with error message.
+                Session::flash('error', 'uploaded file is not valid');
+                return Redirect::to("/cv/$id2");
+              }
+    }
+
     function cvCreate($id){
       $userid= Auth::user()->id;
       $username= Auth::user()->name;
@@ -24,7 +59,7 @@ class templateController extends Controller
 
       // Default template fields
 
-      DB::table('personal_data')->insert(['personal_data_fname' => $username, 'personal_data_bdate' => "11/03/1996", 'personal_data_info' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      DB::table('personal_data')->insert(['personal_data_fname' => $username, 'image_url' => '/images/1.png', 'personal_data_bdate' => "11/03/1996", 'personal_data_info' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse

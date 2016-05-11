@@ -12,6 +12,7 @@
   	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
+<script type="text/javascript" src="/js/html2canvas.js"></script>
   	<link rel="stylesheet" href="/css/jquery.rateyo.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
     <script>

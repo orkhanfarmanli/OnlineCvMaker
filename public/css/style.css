@@ -320,7 +320,7 @@ label[for=checkbox], label[for=checkbox1]{
 .edit{
   color: orange;
 }
-.eduEdit, .workEdit, .pDataEdit, .editPhonePop, .addPhonePop, .editEmailPop, .addEmailPop, .addSocialPop, .editSocialPop, .addAdressPop, .editAdressPop,.addLanguagePop,.editLanguagePop,.addSkillsPop,.editSkillsPop,.addAwardsPop,.editAwardsPop{
+.eduEdit, .addImagePop, .workEdit, .pDataEdit, .editPhonePop, .addPhonePop, .editEmailPop, .addEmailPop, .addSocialPop, .editSocialPop, .addAdressPop, .editAdressPop,.addLanguagePop,.editLanguagePop,.addSkillsPop,.editSkillsPop,.addAwardsPop,.editAwardsPop{
   display: none;
 width: auto;
 height: auto;
