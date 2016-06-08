@@ -23,6 +23,9 @@ Route::group(['middleware' => ['web']], function () {
 	function () {
 	    return view('welcome');
 	});
+	Route::get('/template/updateimage/{id}','templateController@updateImage');
+	Route::post('/template/imageadd/{id}/{id2}', 'templateController@insertImage');
+
 	Route::get('/template/updateedu/{id}','templateController@updateEdu');
 	Route::post('/template/updateedu/add/{id}/{id2}','templateController@updateAddEdu');
 	Route::get('/edudelete/{id}','templateController@deleteEdu');
@@ -61,7 +64,7 @@ Route::group(['middleware' => ['web']], function () {
 	
 
 	Route::get('/select', 'selectController@select');
-	Route::get('/cv/create/{id}', 'templateController@cvCreate');
+	Route::get('/cv/create/{id}/{id2}', 'templateController@cvCreate');
 	Route::get('/cv/{id}', 'templateController@template');
 	Route::get('/test', 'templateController@test');
 	

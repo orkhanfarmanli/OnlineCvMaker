@@ -11,7 +11,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+<script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
+<script type="text/javascript" src="/js/html2canvas.js"></script>
   	<link rel="stylesheet" href="/css/jquery.rateyo.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
     <script>
@@ -25,6 +26,7 @@
 	<ul id="dropdown1" class="dropdown-content">
 			  <li><a href="/">Home</a></li>
 			  <li><a href="/userarea/{{Auth::user()->id}}">Profile</a></li>
+			  <li><a class="buttonCreate" href="/select">New resume</a></li>
 			  <li class="divider"></li>
 			  <li><a href="{{ url('/logout') }}">Log out</a></li>
 	</ul>
@@ -32,7 +34,7 @@
   <div class="container">
     <div class="row">
 	    <div class="nav-wrapper">
-	      <a href="#!" class="brand-logo"><b>RESUME</b>CREATOR</a>
+	      <a href="/" class="brand-logo"><b>RESUME</b>CREATOR</a>
 	     <ul class="right hide-on-med-and-down">
       			<li><a class="dropdown-button userBar" href="#!" data-activates="dropdown1"><img src="/images/resumes.png">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
    		 </ul>

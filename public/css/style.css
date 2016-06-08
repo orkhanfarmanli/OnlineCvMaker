@@ -23,8 +23,8 @@
 .transparent {
   box-shadow: none; }
   .transparent ul a {
-    border: 1px solid white;
-    border-radius: 20px; }
+    
+     }
 
 .mainMiddle {
   text-align: center;
@@ -63,7 +63,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #15cb84 !important;
+    background-color: transparent !important;
     border-radius: 20px; }
     nav ul .userBar img {
       margin-right: 10px;
@@ -103,13 +103,35 @@ head, body {
 
 blockquote {
   border-left: 5px solid grey !important; }
-.template{
-  height: 500px;
-  background-color: white;
+.template1{
+  height: 400px;
+  background: url(/images/template1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: all 0.1s linear;
 }
-.template:hover{
-  box-shadow: 0 0 30px 0 #0abc77;
+.template2{
+  height: 400px;
+  background: url(/images/template1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.1s linear;
+}
+.template3{
+  height: 400px;
+  background: url(/images/template1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.1s linear;
+}
+.template1:hover{
+  box-shadow: 0 20px 0 #0abc77 !important;
+}
+.template2:hover{
+  box-shadow: 0 20px 0 #0abc77 !important;
+}
+.template3:hover{
+  box-shadow: 0 20px 0 #0abc77 !important;
 }
 /*# sourceMappingURL=style.css.map */
 head,body{
@@ -320,7 +342,7 @@ label[for=checkbox], label[for=checkbox1]{
 .edit{
   color: orange;
 }
-.eduEdit, .workEdit, .pDataEdit, .editPhonePop, .addPhonePop, .editEmailPop, .addEmailPop, .addSocialPop, .editSocialPop, .addAdressPop, .editAdressPop,.addLanguagePop,.editLanguagePop,.addSkillsPop,.editSkillsPop,.addAwardsPop,.editAwardsPop{
+.eduEdit, .addImagePop, .workEdit, .pDataEdit, .editPhonePop, .addPhonePop, .editEmailPop, .addEmailPop, .addSocialPop, .editSocialPop, .addAdressPop, .editAdressPop,.addLanguagePop,.editLanguagePop,.addSkillsPop,.editSkillsPop,.addAwardsPop,.editAwardsPop{
   display: none;
 width: auto;
 height: auto;
@@ -380,4 +402,25 @@ select{
 }
 .profileImg:hover .imgWrapper{
   display: block;
+}
+.buttonCreate{
+  color: white;
+}
+.infos{
+  display: none;
+}
+.pointer{
+  cursor: pointer !important;
+}
+.blackColor{
+  color: black !important;
+}
+.pointer:hover{
+  color: #0abc77 !important;
+}
+.pointer:hover .blackColor{
+  color: #0abc77 !important;
+}
+.card{
+  margin-top: 0px !important;
 }

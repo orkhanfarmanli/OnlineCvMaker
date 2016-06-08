@@ -17,9 +17,8 @@
 <body>
 	<ul id="dropdown1" class="dropdown-content">
     @if(Auth::check())
-              <li><a href="/">Home</a></li>
               <li><a href="/userarea/{{Auth::user()->id}}">Profile</a></li>
-              <li><a href="/cv/create/{{Auth::user()->id}}">New Resume</a></li>
+              <li><a class="buttonCreate" href="/select">New Resume</a></li>
               <li class="divider"></li>
               <li><a href="{{ url('/logout') }}">Log out</a></li>
     @else
@@ -180,9 +179,9 @@
 		  	<div class="verticalAlign"></div>
 		  	<div class="verticalAlign"></div>
                 @if(Auth::check())
-		  		<a href="/cv/create/{{Auth::user()->id}}"><div class="createStart col m6 offset-m3 col s12">Let's create Resume</div></a>
+		  		<a class="buttonCreate" href="/select"><div class="createStart col m6 offset-m3 col s12">Let's create Resume</div></a>
                 @else
-                <div class="createStart col m6 offset-m3 col s12">Registration</div>
+                <div class="createStart col m6 offset-m3 col s12">Register and start creating</div>
                 @endif
 		  	<div class="verticalAlign"></div>
 		  	</div>
@@ -277,7 +276,7 @@ $('#loginButton').click(function(){
         var userSurname = data['lastName'];
         var userEmail = data['emailAdress'];
         var userImg = data['pictureUrl'];
-        console.log(userName)
+        console.log(data);
         
     }
 
@@ -290,7 +289,7 @@ $('#loginButton').click(function(){
     function getProfileData() {
     	
     	
-        IN.API.Raw("/people/~:(firstName,lastName,emailAddress,pictureUrl)").result(onSuccess).error(onError);
+        IN.API.Raw("https://api.linkedin.com/v1/people/~?format=json:(firstName,lastName,emailAddress,pictureUrl)").result(onSuccess).error(onError);
         
     }
 

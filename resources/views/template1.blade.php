@@ -440,6 +440,49 @@
 
 <!--Skills popups end -->
 
+<!-- Image pop up -->
+<div class="addImagePop">
+      <div class="col s5 m5">
+        <div class="card-panel center-align white">
+          <div class="row">
+            <div class="card-content">
+              <span class="card-title">ADD IMAGE</span>
+            </div>  
+          </div> 
+          <div class="row">
+            <div class="card-content">
+                      @if(Session::has('success'))
+                        <div class="alert-box success">
+                        <h2>{!! Session::get('success') !!}</h2>
+                        </div>
+                     @endif
+             {!! Form::open(array('url'=>"/template/imageadd/$cvId",'method'=>'POST', 'files'=>true, 'id' => 'imageEditForm')) !!}
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    {!! Form::file('image') !!}
+                    <label class="active" for="com_name">Select image</label>
+                  </div>
+                </div>
+                 @if(Session::has('error'))
+                  <p class="errors">{!! Session::get('error') !!}</p>
+                  @endif
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card-action right">
+                      {!! Form::submit('submit', ['class' => 'waves-effect btn']) !!}
+                    </div>
+                  </div>
+                </div>
+              {!! Form::close() !!}
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+          
+</div>
+<!-- Image pop up end -->
 
 
 <!-- Awards popups -->
@@ -693,7 +736,7 @@
             <a href="#" class="btn  grey btn-text"> <i class="material-icons left">description</i>Save as draft</a>
           </div>
           <div class="card-action">
-            <a href="#" class="waves-effect waves-light btn">PUBLISH</a>
+            <a href="javascript:demoFromHTML()" class="waves-effect waves-light btn">PUBLISH</a>
 
           </div>
         </div>
@@ -701,17 +744,21 @@
 
 
 
-      <div class="col s12 m9">
+      <div class="col s12 m9" id="exportPdf" style="background-color: rgb(240, 240, 240);">
 
 
-       <div class="col s12 m3">
+       <div class="col s12 m3 noPadding">
         <div class="card">
-          <div class="card-image profileImg">
+@foreach($userPersonalDatas as $userPersonalData)
+          <div class="card-image profileImg addImage" name="{{$userPersonalData->personal_data_id}}">
             <div class="imgWrapper">
 
             </div>
-            <img src="/images/1.png" class="responsive-img">
+            
+            <img src="{{$userPersonalData->image_url}}" class="responsive-img">
+            
           </div>
+@endforeach()        
           <div class="card-content">
           <i class="material-icons left grey-text" style="margin-top: 12px;">contacts</i>
           <h5 class="blue-text " name="desingText" id="contactHead">CONTACT<i class="material-icons edit addIcon addPhone" name="">add</i></h5>
@@ -906,10 +953,63 @@
 
 
 
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script type="text/javascript" src="/js/materialize.min.js"></script>
 <script type="text/javascript">
+
+function demoFromHTML() {
+        var pdf = new jsPDF('l', 'pt', 'a4');
+        // source can be HTML-formatted string, or a reference
+        // to an actual DOM element from which the text will be scraped.
+        source = $('#exportPdf')[0];
+
+        // we support special element handlers. Register them with jQuery-style 
+        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+        // There is no support for any other type of selectors 
+        // (class, of compound) at this time.
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#bypassme': function (element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"
+                return true
+            }
+        };
+         var options = {
+            pagesplit: false
+        };
+        // all coords and widths are in jsPDF instance's declared units
+        // 'inches' in this case
+        pdf.addHTML(
+        source, // HTML string or DOM elem ref.
+        10, // x coord
+        10, options, function () {
+            // dispose: object with X, Y of the last line add to the PDF 
+            //          this allow the insertion of new lines after html
+            pdf.save('Test.pdf');
+        });
+    }
+
+    $('.addImage').click(function(){
+
+   var editImageId = $(this).attr('name');
+    $.ajax({
+                type: "GET",
+                url: "/template/updateimage/"+editImageId+"",
+                success: function(imageRow){
+
+                  console.log(imageRow);                       
+                        $('#imageEditForm').attr("action", "/template/imageadd/"+editImageId+"/"+imageRow.cv_id+"");
+                        $("#popBack").fadeIn();
+                        $(".addImagePop").fadeIn();
+                        $('label').addClass('active');
+                        Materialize.updateTextFields();
+                } 
+    });
+
+    });
+
 $('.addAwards').click(function(){
 
       $("#popBack").fadeIn();
@@ -1307,6 +1407,7 @@ $('#education_edit_icon').click(function(){
             $(".addLanguagePop").fadeOut();
       $(".editLanguagePop").fadeOut();
          $(".addAwardsPop").fadeOut();
+         $(".addImagePop").fadeOut();
       $(".editAwardsPop").fadeOut();
       return false;
 
