@@ -20,8 +20,7 @@ class CreateWorksTable extends Migration
             $table->string('work_company', 255);
             $table->string('work_profession', 255);
             $table->text('work_info');
-                        $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
