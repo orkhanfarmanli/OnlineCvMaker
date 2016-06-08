@@ -112,14 +112,14 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid']);
             $cvId = $id;
             $templateCheck = DB::table('cv')->where('cv_id', $id)->first();
             $templateId = $templateCheck->template_id;
-        	  return view("template$templateId", compact('cvId','awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
+            return view("template$templateId", compact('cvId','awards','skills','languages', 'userEducations', 'userWorks', 'userPersonalDatas', 'userPersonalContacts'));
         }else{
           return redirect("/");
         }
 
     }
     function test(){
-    	return view('test');
+      return view('test');
     }
     function insertWork(Request $request, $id){
       DB::table('works')->insert(['work_date' => $request->work_date, 'cv_id' => $id, 'work_company' => $request->work_company, 'work_profession' => $request->work_profession, 'work_info' => $request->work_info]);

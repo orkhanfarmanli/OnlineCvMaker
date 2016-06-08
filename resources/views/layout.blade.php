@@ -26,6 +26,7 @@
 	<ul id="dropdown1" class="dropdown-content">
 			  <li><a href="/">Home</a></li>
 			  <li><a href="/userarea/{{Auth::user()->id}}">Profile</a></li>
+
 			  <li><a class="buttonCreate" href="/select">New resume</a></li>
 			  <li class="divider"></li>
 			  <li><a href="{{ url('/logout') }}">Log out</a></li>
